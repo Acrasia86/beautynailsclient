@@ -15,7 +15,7 @@ const requests = {
     del: <T> (url: string) => axios.delete<T>(url).then(responseBody),
 }
 
-const employees = {
+const products = {
     list: () => requests.get<Product[]>('/product'),
     details: (id: string) => requests.get<Product>(`/product/${id}`),
     create: (product: Product) => requests.post<Product>('/product', product),
@@ -31,7 +31,7 @@ const account = {
 
 
 const agent = {
-    employees,
+    products,
     account
 }
 
