@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { Product } from '../interfaces/Product';
-import { User, UserFormValues } from '../interfaces/User';
+import { Role, User, UserFormValues } from '../interfaces/User';
+import store from '../stores/store';
 
 
 const responseBody = <T> (response: AxiosResponse<T>) => response.data;
@@ -26,7 +27,8 @@ const products = {
 const account = {
     current: () => requests.get<User>('/account'),
     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
-    register: (user: UserFormValues) => requests.post<User>('/account/register', user) 
+    register: (user: UserFormValues) => requests.post<User>('/account/register', user),
+    role: () => requests.get<Role>('/account/getrole')
 }
 
 
