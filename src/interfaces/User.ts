@@ -11,3 +11,7 @@ export interface UserFormValues {
     displayName?: string;
     username?: string;
 }
+
+export interface Role {
+    email: string;
+}

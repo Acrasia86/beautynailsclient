@@ -1,6 +1,7 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { Product } from '../interfaces/Product';
-import { User, UserFormValues } from '../interfaces/User';
+import { Role, User, UserFormValues } from '../interfaces/User';
+import store from '../stores/store';
 
 
 const responseBody = <T> (response: AxiosResponse<T>) => response.data;
@@ -15,7 +16,7 @@ const requests = {
     del: <T> (url: string) => axios.delete<T>(url).then(responseBody),
 }
 
-const employees = {
+const products = {
     list: () => requests.get<Product[]>('/product'),
     details: (id: string) => requests.get<Product>(`/product/${id}`),
     create: (product: Product) => requests.post<Product>('/product', product),
@@ -26,12 +27,13 @@ const employees = {
 const account = {
     current: () => requests.get<User>('/account'),
     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
-    register: (user: UserFormValues) => requests.post<User>('/account/register', user) 
+    register: (user: UserFormValues) => requests.post<User>('/account/register', user),
+    role: () => requests.get<Role>('/account/getrole')
 }
 
 
 const agent = {
-    employees,
+    products,
     account
 }
 
