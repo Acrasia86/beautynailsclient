@@ -2,7 +2,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 import { useNavigate, Navigate, NavigateFunction } from "react-router-dom";
 import agent from "../api/agent";
 
-import { User, UserFormValues } from "../interfaces/User";
+import { Role, User, UserFormValues } from "../interfaces/User";
 import { router } from "../router/Routes";
 import store from "./store";
 
@@ -11,6 +11,8 @@ class userStore {
     user: User | null = null;
     email: string = '';
     password: string = '';
+    role: [] = [];
+
     constructor() {
         makeAutoObservable(this);
     }
@@ -38,6 +40,12 @@ class userStore {
     router.navigate('/')
    }
 
+//    setRole = (role: []) => {
+//         this.role = role;
+//    }
+   setRole = (role: []) => {
+    this.role = [...role];
+}
 }
 
 export default new userStore();
