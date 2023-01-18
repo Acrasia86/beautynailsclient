@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable, runInAction } from "mobx";
 
 class store {
 
@@ -11,7 +11,9 @@ class store {
 
     setToken = (token: string | null) => {
         if(token) localStorage.setItem('jwt', token);
-        this.token = token;
+        runInAction(() => {
+            this.token = token;
+        })
     }
 
     setAppLoaded = () => {

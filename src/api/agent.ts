@@ -6,6 +6,8 @@ import store from '../stores/store';
 
 const responseBody = <T> (response: AxiosResponse<T>) => response.data;
 
+axios.defaults.headers.common['Authorization'] = `Bearer ${store.token}`;
+
 axios.defaults.baseURL = 'http://localhost:5235/api';
 
 const requests = {
