@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom';
-import userStore from '../../stores/userStore';
 
 const Home = () => {
   
   return (
     <div>
-      <h1 style={{color: 'red'}}>Home</h1>
-
+      <Navbar />
+      <Hero />
     </div>
   )
 }
