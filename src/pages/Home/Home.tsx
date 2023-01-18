@@ -1,11 +1,13 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
+import Hero from '../../components/Hero';
+import Navbar from '../../components/Navbar';
 
 const Home = () => {
   return (
     <div>
-      <h1 style={{color: 'red'}}>Home</h1>
-
+      <Navbar />
+      <Hero />
     </div>
   )
 }
