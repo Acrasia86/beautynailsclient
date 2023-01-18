@@ -11,7 +11,7 @@ class userStore {
     user: User | null = null;
     email: string = '';
     password: string = '';
-    role: Role | null = null;
+    role: string = '';
 
     constructor() {
         makeAutoObservable(this);
@@ -40,14 +40,9 @@ class userStore {
     router.navigate('/')
    }
 
-   getRole = async () => {
-    const roles = await agent.account.role();
-    runInAction(() => {
-     this.role = roles;
-    })
-
+   setRole = (role: string) => {
+        this.role = role;
    }
-
 }
 
 export default new userStore();
