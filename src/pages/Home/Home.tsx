@@ -6,7 +6,7 @@ const Home = () => {
   
   return (
     <div>
-      <h1 style={{color: 'black'}}>Home</h1>
+      <h1 style={{color: 'red'}}>Home</h1>
 
     </div>
   )
