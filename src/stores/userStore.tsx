@@ -11,7 +11,7 @@ class userStore {
     user: User | null = null;
     email: string = '';
     password: string = '';
-    role: string = '';
+    role: [] = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -40,9 +40,12 @@ class userStore {
     router.navigate('/')
    }
 
-   setRole = (role: string) => {
-        this.role = role;
-   }
+//    setRole = (role: []) => {
+//         this.role = role;
+//    }
+   setRole = (role: []) => {
+    this.role = [...role];
+}
 }
 
 export default new userStore();
