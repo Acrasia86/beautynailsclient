@@ -1,5 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
-import { Product } from '../interfaces/Product';
+import { Service } from '../interfaces/Service';
 import { Role, User, UserFormValues } from '../interfaces/User';
 import store from '../stores/store';
 
@@ -19,10 +19,10 @@ const requests = {
 }
 
 const products = {
-    list: () => requests.get<Product[]>('/product'),
-    details: (id: string) => requests.get<Product>(`/product/${id}`),
-    create: (product: Product) => requests.post<Product>('/product', product),
-    update: (product: Product) => requests.put<void>('/product', product),
+    list: () => requests.get<Service[]>('/product'),
+    details: (id: string) => requests.get<Service>(`/product/${id}`),
+    create: (product: Service) => requests.post<Service>('/product', product),
+    update: (product: Service) => requests.put<void>('/product', product),
     delete: (id: string) => requests.del<void>(`/product/${id}`)
 }
 
