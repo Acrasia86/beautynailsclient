@@ -12,11 +12,17 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import DiamondIcon from '@mui/icons-material/Diamond';
 import Face3Icon from '@mui/icons-material/Face3';
+import userStore from '../stores/userStore';
+import { observer } from 'mobx-react-lite';
+import { Link } from 'react-router-dom';
 
-const pages = ['Hem', 'Prislista', 'Kontakta oss'];
-const settings = ['Logga in','Skapa ett konto','Admin'];
+
 
 function Navbar() {
+  const pages = ['Hem', 'Prislista', 'Kontakta oss'];
+const settings = ['Logga in','Skapa ett konto','Admin'];
+const {isLoggedIn, user, logout} = userStore;
+console.log(isLoggedIn);
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -122,6 +128,9 @@ function Navbar() {
                 {page}
               </Button>
             ))}
+            {isLoggedIn ? (<MenuItem style={{marginLeft: '300px'}}><Typography textAlign='center'>Välkommen {user?.displayName}</Typography></MenuItem>)
+            : (null)}       
+                    
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
@@ -146,11 +155,23 @@ function Navbar() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                {!isLoggedIn ? 
+                <MenuItem style={{textDecoration: 'none'}}  onClick={handleCloseUserMenu}>
+                  <Link to='/login'>
+                  <Typography textAlign="center">Logga in</Typography>
+                  </Link>
                 </MenuItem>
-              ))}
+                : 
+                <MenuItem onClick={logout}>
+                  <Typography textAlign="center">Logga ut</Typography>
+                </MenuItem> 
+                }
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">Skapa ett konto</Typography>
+                </MenuItem>
+                <MenuItem onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">Admin</Typography>
+                </MenuItem>
             </Menu>
           </Box>
         </Toolbar>
@@ -158,4 +179,4 @@ function Navbar() {
     </AppBar>
   );
 }
-export default Navbar;
+export default observer(Navbar);

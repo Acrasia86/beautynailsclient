@@ -7,6 +7,7 @@ import userStore from '../../stores/userStore'
 const AdminPage = () => {
   
   const [role, setRole] = useState<[]>([]);
+  const {isLoggedIn} = userStore;
 
    useEffect(() => {
       if(store.token !== null && role !== null) {
@@ -28,8 +29,11 @@ const AdminPage = () => {
     <div>
       {
         role.map((userRole) => {
-          if(userRole === 'Admin' && store.token !== null) {
+          if(userRole === 'Admin' && store.token !== null && isLoggedIn) {
             return <div>AdminPage</div>
+          }
+          else if(!isLoggedIn) {
+            <div>You are not permitted to be here</div>
           }
           else {
             return <div>You are not permitted to be here</div>
