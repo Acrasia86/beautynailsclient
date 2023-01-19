@@ -35,17 +35,22 @@ class userStore {
 
    logout = () => {
     store.setToken(null);
-    localStorage.removeItem('jwt');
     this.user = null;
     router.navigate('/')
    }
 
-//    setRole = (role: []) => {
-//         this.role = role;
-//    }
    setRole = (role: []) => {
     this.role = [...role];
 }
+
+   getUser = async () => {
+    try {
+        const user = await agent.account.current();
+        runInAction(() => this.user = user);
+    } catch (error) {
+        console.log(error);
+    }
+   }
 }
 
 export default new userStore();

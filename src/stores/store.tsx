@@ -1,4 +1,4 @@
-import { makeAutoObservable, runInAction } from "mobx";
+import { makeAutoObservable, reaction, runInAction } from "mobx";
 
 class store {
 
@@ -7,13 +7,21 @@ class store {
 
     constructor() {
         makeAutoObservable(this);
+
+        reaction(
+            () => this.token,
+            token => {
+                if(token) {
+                    localStorage.setItem('jwt', token)
+                } else {
+                    localStorage.removeItem('jtw')
+                }
+            }
+        )
     }
 
     setToken = (token: string | null) => {
-        if(token) localStorage.setItem('jwt', token);
-        runInAction(() => {
-            this.token = token;
-        })
+        this.token = token;
     }
 
     setAppLoaded = () => {

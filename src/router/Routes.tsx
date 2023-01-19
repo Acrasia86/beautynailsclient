@@ -3,6 +3,7 @@ import App from "../App";
 import LoginForm from "../features/users/LoginForm";
 import AdminPage from "../pages/AdminPage/AdminPage";
 import Home from "../pages/Home/Home";
+import RegisterPage from "../pages/RegisterPage/RegisterPage";
 
 export const routes: RouteObject[] = [
     {
@@ -11,7 +12,8 @@ export const routes: RouteObject[] = [
         children: [
             {path: '', element: <Home />},
             {path: 'login', element: <LoginForm />},
-            {path: 'admin', element: <AdminPage />}
+            {path: 'admin', element: <AdminPage />},
+            {path: 'registerpage', element: <RegisterPage />}
         ]
     }
 ]

@@ -21,8 +21,7 @@ import { Link } from 'react-router-dom';
 function Navbar() {
   const pages = ['Hem', 'Prislista', 'Kontakta oss'];
 const settings = ['Logga in','Skapa ett konto','Admin'];
-const {isLoggedIn, user, logout} = userStore;
-console.log(isLoggedIn);
+const {isLoggedIn, user, logout, role} = userStore;
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
@@ -167,13 +166,17 @@ console.log(isLoggedIn);
                 </MenuItem> 
                 }
                 <MenuItem onClick={handleCloseUserMenu}>
+                  <Link to='/registerpage'>
                   <Typography textAlign="center">Skapa ett konto</Typography>
+                  </Link>
                 </MenuItem>
+                { isLoggedIn ?
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Link to='/admin'>
                   <Typography textAlign="center">Admin</Typography>
                   </Link>
                 </MenuItem>
+                : null}
             </Menu>
           </Box>
         </Toolbar>
