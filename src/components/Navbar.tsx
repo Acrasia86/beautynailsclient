@@ -20,10 +20,10 @@ function Navbar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
 
-  const handleOpenNavMenu = (event) => {
+  const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
   };
-  const handleOpenUserMenu = (event) => {
+  const handleOpenUserMenu = (event: any) => {
     setAnchorElUser(event.currentTarget);
   };
 
@@ -36,7 +36,7 @@ function Navbar() {
   };
 
   return (
-    <AppBar position="static" color=''>
+    <AppBar position="static" color='inherit'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <DiamondIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
