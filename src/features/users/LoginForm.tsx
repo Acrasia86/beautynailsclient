@@ -11,9 +11,7 @@ export const LoginForm = () => {
    const {login} = userStore;
    const navigate = useNavigate();
   return (
-    <div style={{ height: '100vh', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-      <div style={{backgroundColor: 'rgb(71, 132, 143, 0.5)', width: '50%', height: '500px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-      <div style={{width: '50%', height: '300px'}}>
+   
     <Formik
     initialValues={{email: '', password: '', error: null}}
     onSubmit={(values, {setErrors}) => login(values).catch(error => 
@@ -33,9 +31,7 @@ export const LoginForm = () => {
         </Form>
     )}
     </Formik>
-    </div>
-    </div>
-    </div>
+  
 
   )
 }

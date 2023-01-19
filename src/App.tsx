@@ -7,6 +7,7 @@ import Home from './pages/Home/Home';
 import userStore from './stores/userStore';
 import store from './stores/store';
 import { observer } from 'mobx-react-lite';
+import ModalContainer from './common/ModalContainer';
 
 
 
@@ -26,6 +27,7 @@ function App() {
 
   return (
     <div className="App">
+      <ModalContainer />
       <Outlet />
     </div>
   );
