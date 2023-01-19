@@ -170,7 +170,9 @@ console.log(isLoggedIn);
                   <Typography textAlign="center">Skapa ett konto</Typography>
                 </MenuItem>
                 <MenuItem onClick={handleCloseUserMenu}>
+                  <Link to='/admin'>
                   <Typography textAlign="center">Admin</Typography>
+                  </Link>
                 </MenuItem>
             </Menu>
           </Box>

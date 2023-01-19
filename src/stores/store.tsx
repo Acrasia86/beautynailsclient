@@ -2,7 +2,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 
 class store {
 
-    token: string | null = null;
+    token: string | null = localStorage.getItem('jwt');
     appLoaded = false;
 
     constructor() {
