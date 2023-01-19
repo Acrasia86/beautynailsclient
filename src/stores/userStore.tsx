@@ -4,6 +4,7 @@ import agent from "../api/agent";
 
 import { Role, User, UserFormValues } from "../interfaces/User";
 import { router } from "../router/Routes";
+import modalStore from "./modalStore";
 import store from "./store";
 
 class userStore {
@@ -27,6 +28,7 @@ class userStore {
             store.setToken(user.token);
             runInAction(() => this.user = user);
             router.navigate('/')
+            modalStore.closeModal();
             console.log(user);
         } catch(error) {
             throw error;
@@ -38,6 +40,19 @@ class userStore {
     this.user = null;
     router.navigate('/')
    }
+
+   register = async(creds: UserFormValues) => {
+    try {
+        const user = await agent.account.register(creds);
+        store.setToken(user.token);
+        runInAction(() => this.user = user);
+        router.navigate('/')
+        modalStore.closeModal();
+        console.log(user);
+    } catch(error) {
+        throw error;
+    }
+}
 
    setRole = (role: []) => {
     this.role = [...role];

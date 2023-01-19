@@ -15,6 +15,9 @@ import Face3Icon from '@mui/icons-material/Face3';
 import userStore from '../stores/userStore';
 import { observer } from 'mobx-react-lite';
 import { Link } from 'react-router-dom';
+import modalStore from '../stores/modalStore';
+import LoginForm from '../features/users/LoginForm';
+import RegisterForm from '../features/users/RegisterForm';
 
 
 
@@ -24,6 +27,7 @@ const settings = ['Logga in','Skapa ett konto','Admin'];
 const {isLoggedIn, user, logout, role} = userStore;
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  const {openModal} = modalStore;
 
   const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
@@ -155,20 +159,16 @@ const {isLoggedIn, user, logout, role} = userStore;
               onClose={handleCloseUserMenu}
             >
                 {!isLoggedIn ? 
-                <MenuItem style={{textDecoration: 'none'}}  onClick={handleCloseUserMenu}>
-                  <Link to='/login'>
+                <MenuItem style={{textDecoration: 'none'}}  onClick={() => openModal(<LoginForm />)}>
                   <Typography textAlign="center">Logga in</Typography>
-                  </Link>
                 </MenuItem>
                 : 
                 <MenuItem onClick={logout}>
                   <Typography textAlign="center">Logga ut</Typography>
                 </MenuItem> 
                 }
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Link to='/registerpage'>
-                  <Typography textAlign="center">Skapa ett konto</Typography>
-                  </Link>
+                <MenuItem style={{textDecoration: 'none'}}  onClick={() => openModal(<RegisterForm />)}>
+                  <Typography textAlign="center">Skapa konto</Typography>
                 </MenuItem>
                 { isLoggedIn ?
                 <MenuItem onClick={handleCloseUserMenu}>
