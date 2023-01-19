@@ -26,7 +26,7 @@ class userStore {
             const user = await agent.account.login(creds);
             store.setToken(user.token);
             runInAction(() => this.user = user);
-            router.navigate('/admin')
+            router.navigate('/')
             console.log(user);
         } catch(error) {
             throw error;
