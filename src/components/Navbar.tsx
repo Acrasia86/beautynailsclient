@@ -19,6 +19,7 @@ import modalStore from '../stores/modalStore';
 import LoginForm from '../features/users/LoginForm';
 import RegisterForm from '../features/users/RegisterForm';
 import { TextField } from '@mui/material';
+import SearchBar from './SearchBar';
 
 
 
@@ -56,7 +57,7 @@ const {isLoggedIn, user, logout, role} = userStore;
             component="a"
             href="/"
             sx={{
-              mr: 2,
+              mr: 35,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
@@ -137,7 +138,7 @@ const {isLoggedIn, user, logout, role} = userStore;
             : (null)}       
               
           </Box>
-          <TextField id="outlined-basic" label="Sök" variant="outlined" />    
+          <SearchBar />   
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Öppna instälningar">
               <IconButton className='personIcon' onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -145,7 +146,7 @@ const {isLoggedIn, user, logout, role} = userStore;
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ mt: '45px' }}
+              sx={{ mt: '45px', ml: '40px'}}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
