@@ -45,7 +45,7 @@ const {isLoggedIn, user, logout, role} = userStore;
   };
 
   return (
-    <AppBar position="static" color='inherit'>
+    <AppBar position="static" color='transparent'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <DiamondIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
@@ -167,9 +167,11 @@ const {isLoggedIn, user, logout, role} = userStore;
                   <Typography textAlign="center">Logga ut</Typography>
                 </MenuItem> 
                 }
+                {!isLoggedIn ? 
                 <MenuItem style={{textDecoration: 'none'}}  onClick={() => openModal(<RegisterForm />)}>
                   <Typography textAlign="center">Skapa konto</Typography>
                 </MenuItem>
+                : null }
                 { isLoggedIn ?
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Link to='/admin'>
