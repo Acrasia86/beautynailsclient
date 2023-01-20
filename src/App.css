@@ -8,3 +8,7 @@ body {
     background: radial-gradient(ellipse at center, rgba(255,186,102,0.7) 0%, rgba(255,186,102,0.7) 6%, rgba(255,186,102,0.69) 22%, rgba(217,164,99,0.67) 55%, rgba(196,196,196,0.65) 91%, rgba(196,196,196,0.64) 100%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffba66', endColorstr='#c4c4c4', GradientType=1 );
 }
+
+.personIcon {
+ margin-left: 70px !important;
+}

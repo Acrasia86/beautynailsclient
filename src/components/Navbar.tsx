@@ -18,6 +18,7 @@ import { Link } from 'react-router-dom';
 import modalStore from '../stores/modalStore';
 import LoginForm from '../features/users/LoginForm';
 import RegisterForm from '../features/users/RegisterForm';
+import { TextField } from '@mui/material';
 
 
 
@@ -65,8 +66,9 @@ const {isLoggedIn, user, logout, role} = userStore;
           >
             Beauty Nails
           </Typography>
-
+         
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+     
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -133,12 +135,12 @@ const {isLoggedIn, user, logout, role} = userStore;
             ))}
             {isLoggedIn ? (<MenuItem style={{marginLeft: '300px'}}><Typography textAlign='center'>Välkommen {user?.displayName}</Typography></MenuItem>)
             : (null)}       
-                    
+              
           </Box>
-
+          <TextField id="outlined-basic" label="Sök" variant="outlined" />    
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Öppna instälningar">
-              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+              <IconButton className='personIcon' onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Face3Icon />
               </IconButton>
             </Tooltip>
@@ -157,6 +159,7 @@ const {isLoggedIn, user, logout, role} = userStore;
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
+
             >
                 {!isLoggedIn ? 
                 <MenuItem style={{textDecoration: 'none'}}  onClick={() => openModal(<LoginForm />)}>
