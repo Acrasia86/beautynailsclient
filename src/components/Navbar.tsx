@@ -135,11 +135,11 @@ const {isLoggedIn, user, logout, role} = userStore;
                 {page}
               </Button>
             ))}
-            {isLoggedIn ? (<MenuItem sx={{marginLeft: '300px'}}><Typography textAlign='center'>Välkommen {user?.displayName}</Typography></MenuItem>)
+            {isLoggedIn ? (<MenuItem sx={{marginLeft: '360px'}}><Typography textAlign='center'>Välkommen {user?.displayName}</Typography></MenuItem>)
             : (null)}       
               
           </Box>
-          <SearchBar />   
+          
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Öppna instälningar">
               <IconButton className='personIcon' onClick={handleOpenUserMenu} sx={{ p: 0 }}>
