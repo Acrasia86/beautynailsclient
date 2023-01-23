@@ -9,6 +9,9 @@ import PeopleIcon from '@mui/icons-material/People';
 import BarChartIcon from '@mui/icons-material/BarChart';
 import LayersIcon from '@mui/icons-material/Layers';
 import AssignmentIcon from '@mui/icons-material/Assignment';
+import Button from '@mui/material/Button';
+import LogoutIcon from '@mui/icons-material/Logout';
+import { Box } from '@mui/material';
 
 export const mainListItems = (
   <React.Fragment>
@@ -22,51 +25,58 @@ export const mainListItems = (
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <ListItemText primary="Bokningar" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <PeopleIcon />
       </ListItemIcon>
-      <ListItemText primary="Customers" />
+      <ListItemText primary="Kunder" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary="Reports" />
+      <ListItemText primary="Rapporter" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <LayersIcon />
       </ListItemIcon>
-      <ListItemText primary="Integrations" />
+      <ListItemText primary="Lägg in tjänster" />
     </ListItemButton>
   </React.Fragment>
 );
 
 export const secondaryListItems = (
+  <>
   <React.Fragment>
     <ListSubheader component="div" inset>
-      Saved reports
+      Sparade rapporter
     </ListSubheader>
     <ListItemButton>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="Current month" />
+      <ListItemText primary="
+Denna månad" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="Last quarter" />
+      <ListItemText primary="
+Senaste kvartalet" />
     </ListItemButton>
     <ListItemButton>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
-      <ListItemText primary="Year-end sale" />
+      <ListItemText primary="Bokslutsförsäljning" />
     </ListItemButton>
   </React.Fragment>
+  <Box sx={{mt:15, ml:6}}>
+  <Button variant="contained" endIcon={<LogoutIcon />}>Loga ut</Button>
+  </Box>
+  </>
 );

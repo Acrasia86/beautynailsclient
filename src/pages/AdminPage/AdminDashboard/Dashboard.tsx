@@ -16,7 +16,6 @@ import Paper from '@mui/material/Paper';
 import Link from '@mui/material/Link';
 import MenuIcon from '@mui/icons-material/Menu';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
-import NotificationsIcon from '@mui/icons-material/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
 import Chart from './Chart';
 import Deposits from './Deposits';
@@ -89,12 +88,12 @@ function DashboardContent() {
         <AppBar position="absolute" open={open}>
           <Toolbar
             sx={{
-              pr: '24px', // keep right padding when drawer closed
+              pr: '24px' // keep right padding when drawer closed
             }}
           >
             <IconButton
               edge="start"
-              color="inherit"
+              color="success"
               aria-label="open drawer"
               onClick={toggleDrawer}
               sx={{
@@ -105,21 +104,23 @@ function DashboardContent() {
               <MenuIcon />
             </IconButton>
             <Typography
-              component="h1"
               variant="h6"
-              color="inherit"
               noWrap
+              component="a"
+              href="/"
+              
               sx={{ flexGrow: 1 }}
             >
               Beauty Nails
             </Typography>
             <IconButton color="inherit">
-              <Badge badgeContent={4} color="secondary">
+              <Badge badgeContent={4} color="success">
               <MailOutlineIcon/>
               </Badge>
             </IconButton>
           </Toolbar>
         </AppBar>
+        
          <Drawer variant="permanent" open={open}>
           <Toolbar
             sx={{
@@ -143,10 +144,6 @@ function DashboardContent() {
         <Box
           component="main"
           sx={{
-            backgroundColor: (theme) =>
-              theme.palette.mode === 'light'
-                ? theme.palette.grey[100]
-                : theme.palette.grey[900],
             flexGrow: 1,
             height: '100vh',
             overflow: 'auto',
@@ -154,8 +151,8 @@ function DashboardContent() {
         >
           <Toolbar />
           <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
+            
             <Grid container spacing={3}>
-              {/* Chart */}
               <Grid item xs={12} md={8} lg={9}>
                 <Paper
                   sx={{

@@ -5,13 +5,23 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
+import {useRef} from 'react'
 
 const theme = createTheme();
 
-export default function Album() {
+export default function Hero() {
+
+  const booking= useRef(null);
+  const scrollToSection = (elementRef:any) => {
+    window.scrollTo({
+      top: elementRef.current.offsetTop,
+      behavior:'smooth'
+    })
+  }
+
   return (
     <ThemeProvider theme={theme}>
-      <main>
+      <main style={{height:'700px'}}>
 
         <Box
           sx={{
@@ -38,13 +48,15 @@ export default function Album() {
               spacing={2}
               justifyContent="left"
             >
-              <Button variant="contained" color="success">Boka tid</Button>
-              <Button variant="outlined" color="success">Tjänster</Button>
+              <Button variant="contained" color="success" onClick={() => scrollToSection(booking) }>Boka tid</Button>
+              <Button variant="outlined"  color="success">Tjänster</Button>
             </Stack>
           </Container>
         </Box>
-
       </main>
+      <section ref={booking} className="booking" style={{height:'1000px',background:'white', color: "red"}}>
+        <h1>Här kommer bokigssida</h1>
+      </section>
     </ThemeProvider>
   );
 }
