@@ -20,6 +20,7 @@ import LoginForm from '../features/users/LoginForm';
 import RegisterForm from '../features/users/RegisterForm';
 import { TextField } from '@mui/material';
 import SearchBar from './SearchBar';
+import Avatar from '@mui/material/Avatar'
 
 
 
@@ -50,7 +51,7 @@ const {isLoggedIn, user, logout, role} = userStore;
     <AppBar position="static" color='transparent'>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
-          <DiamondIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <DiamondIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: '#318162' }} />
           <Typography
             variant="h6"
             noWrap
@@ -134,7 +135,7 @@ const {isLoggedIn, user, logout, role} = userStore;
                 {page}
               </Button>
             ))}
-            {isLoggedIn ? (<MenuItem style={{marginLeft: '300px'}}><Typography textAlign='center'>Välkommen {user?.displayName}</Typography></MenuItem>)
+            {isLoggedIn ? (<MenuItem sx={{marginLeft: '300px'}}><Typography textAlign='center'>Välkommen {user?.displayName}</Typography></MenuItem>)
             : (null)}       
               
           </Box>
@@ -152,6 +153,7 @@ const {isLoggedIn, user, logout, role} = userStore;
               anchorOrigin={{
                 vertical: 'top',
                 horizontal: 'right',
+
               }}
               keepMounted
               transformOrigin={{

@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Role } from '../../interfaces/User';
 import store from '../../stores/store';
 import userStore from '../../stores/userStore'
+import Dashboard from '../AdminPage/AdminDashboard/Dashboard'
 
 const AdminPage = () => {
   
@@ -30,7 +31,7 @@ const AdminPage = () => {
       {
         role.map((userRole) => {
           if(userRole === 'Admin' && store.token !== null && isLoggedIn) {
-            return <div>AdminPage</div>
+            return <Dashboard/>
           }
           else if(!isLoggedIn) {
             <div>You are not permitted to be here</div>

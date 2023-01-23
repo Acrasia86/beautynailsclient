@@ -1,5 +1,5 @@
 body {
-    background: rgba(255,186,102,0.7);
+    background: rgba(229, 225, 220, 0.7);
     background: -moz-radial-gradient(center, ellipse cover, rgba(255,186,102,0.7) 0%, rgba(255,186,102,0.7) 6%, rgba(255,186,102,0.69) 22%, rgba(217,164,99,0.67) 55%, rgba(196,196,196,0.65) 91%, rgba(196,196,196,0.64) 100%);
     background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(255,186,102,0.7)), color-stop(6%, rgba(255,186,102,0.7)), color-stop(22%, rgba(255,186,102,0.69)), color-stop(55%, rgba(217,164,99,0.67)), color-stop(91%, rgba(196,196,196,0.65)), color-stop(100%, rgba(196,196,196,0.64)));
     background: -webkit-radial-gradient(center, ellipse cover, rgba(255,186,102,0.7) 0%, rgba(255,186,102,0.7) 6%, rgba(255,186,102,0.69) 22%, rgba(217,164,99,0.67) 55%, rgba(196,196,196,0.65) 91%, rgba(196,196,196,0.64) 100%);
@@ -29,9 +29,8 @@ body {
   position: relative;
   padding: 15px 40px 15px 20px;
   width: 20px;
-  color: #525252;
+  color: #318162;
   background-color: rgba(255, 254, 254, 0.2);
-  letter-spacing: 2px;
   border: rgb(147, 147, 147) 1px solid;
   border-radius: 5px;
   height: 35px;
@@ -44,6 +43,5 @@ body {
 #searchIcon{
     position: relative;
     left: -37px;
-    color: #8233C5;
+    color: #318162;
   }
-
