@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react'
 import { Role } from '../../interfaces/User';
 import store from '../../stores/store';
 import userStore from '../../stores/userStore'
-import Dashboard from '../AdminPage/AdminDashboard/Dashboard'
+import Dashboard from './Dashboard'
 
 const AdminPage = () => {
   

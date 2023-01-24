@@ -18,9 +18,6 @@ import { Link } from 'react-router-dom';
 import modalStore from '../stores/modalStore';
 import LoginForm from '../features/users/LoginForm';
 import RegisterForm from '../features/users/RegisterForm';
-import { TextField } from '@mui/material';
-import SearchBar from './SearchBar';
-import Avatar from '@mui/material/Avatar'
 
 
 

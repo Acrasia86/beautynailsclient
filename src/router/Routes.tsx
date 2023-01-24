@@ -1,8 +1,12 @@
 import { createBrowserRouter, RouteObject } from "react-router-dom";
 import App from "../App";
 import LoginForm from "../features/users/LoginForm";
-import AdminPage from "../pages/AdminPage/AdminPage";
+import AdminHome from "../pages/AdminPage/Admin.Home";
 import Home from "../pages/Home/Home";
+import AdminServices from "../pages/AdminPage/AdminServicese";
+import AdminStuff from "../pages/AdminPage/AdminStuff";
+import AdminSetting from "../pages/AdminPage/AdminSetting";
+import AdminPage from "../pages/AdminPage/AdminPage";
 
 export const routes: RouteObject[] = [
     {
@@ -11,6 +15,9 @@ export const routes: RouteObject[] = [
         children: [
             {path: '', element: <Home />},
             {path: 'admin', element: <AdminPage />},
+            {path: 'services', element: <AdminServices/>},
+            {path: 'stuff', element: <AdminStuff/>},
+            {path: 'settings', element: <AdminSetting/>},
         ]
     }
 ]
