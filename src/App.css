@@ -11,15 +11,31 @@ body {
     --light-gray:#bfbbaf;
     --sand-sand: #e1ddd2;
     --white: #f7f2ef;
-
-
-
 }
 
 .personIcon {
  margin-bottom: 3px !important; 
  margin-right: 30px !important;
 }
-
-
-
+.dashboad-info{
+    padding: 10px;
+}
+.info-title{
+    font-weight: 900;
+}
+.info-subtitle{
+    font-size: 14px;
+}
+.info-icon{
+    margin-top: 20px;
+    margin-left: 20px;
+}
+.income1{
+    background-image: linear-gradient(to right bottom, #e1ddd2, #e5dda7, #dde07d, #c9e552, #a8eb12);
+}
+.income2{
+    background-image: linear-gradient(to left bottom, #e1ddd2, #e5dda7, #dde07d, #c9e552, #a8eb12);
+}
+.admin-container{
+    min-height: 100vh;
+}

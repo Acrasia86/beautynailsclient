@@ -45,7 +45,7 @@ const {isLoggedIn, user, logout, role} = userStore;
   };
 
   return (
-    <AppBar position="static" color='transparent'>
+    <AppBar position="static" sx={{backgroundColor:'#555a54', color:'#f7f2ef'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <DiamondIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: '#318162' }} />
@@ -59,7 +59,7 @@ const {isLoggedIn, user, logout, role} = userStore;
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              color: '#132F3A',
+              color: '#f7f2ef',
               textDecoration: 'none',
             }}
           >
@@ -127,7 +127,7 @@ const {isLoggedIn, user, logout, role} = userStore;
               <Button
                 key={page}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: '#132F3A', display: 'block' }}
+                sx={{ my: 2, color: '#f7f2ef', display: 'block' }}
               >
                 {page}
               </Button>
