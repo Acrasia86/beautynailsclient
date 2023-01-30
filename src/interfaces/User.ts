@@ -10,6 +10,7 @@ export interface UserFormValues {
     password: string;
     displayName?: string;
     userName?: string;
+    birthDay?: string;
 }
 
 export interface Role {

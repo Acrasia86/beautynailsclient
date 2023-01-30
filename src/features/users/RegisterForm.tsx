@@ -14,7 +14,7 @@ export const RegisterForm = () => {
   return (
    
     <Formik
-    initialValues={{displayName: '', userName: '', email: '', password: '', error: null}}
+    initialValues={{displayName: '', userName: '', email: '', password: '', birthDay: '', error: null}}
     onSubmit={(values, {setErrors}) => register(values).catch(error => 
         setErrors({error: 'Invalid email or password!'}))}
         validationSchema={Yup.object({
@@ -22,6 +22,7 @@ export const RegisterForm = () => {
             userName: Yup.string().required(),
             email: Yup.string().required(),
             password: Yup.string().required(),
+            birthDay: Yup.string()
         })}>  
     {({handleSubmit, isSubmitting, errors, isValid, dirty}) => (
         <Form className='ui form error' onSubmit={handleSubmit}>
@@ -29,6 +30,8 @@ export const RegisterForm = () => {
             <MyTextInput placeholder='Namn' name='displayName'/>
             <label style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '10px'}}>Användarnamn</label>
             <MyTextInput placeholder='Användarnamn' name='userName'/>
+            <label style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '10px'}}>Födelsedag</label>
+            <MyTextInput placeholder='Födelsedag' name='birthDay' type='date'/>
           <label style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '10px'}}>Email</label>
             <MyTextInput placeholder='Email' name='email'/>
             <label style={{display: 'flex', justifyContent: 'flex-start', marginBottom: '10px'}}>Lösenord</label>
