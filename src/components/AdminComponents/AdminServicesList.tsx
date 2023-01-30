@@ -22,9 +22,10 @@ import Autocomplete from "@mui/material/Autocomplete";
 import serviceStore from '../../stores/serviceStore';
 import OneService from '../OneService'
 import { observable } from 'mobx';
+import { observer } from 'mobx-react-lite';
 
 
-export default function AdminServicesList() {
+ function AdminServicesList() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [rows, setRows] = useState([]);
@@ -42,9 +43,9 @@ export default function AdminServicesList() {
 
   useEffect(() => {
     services();
-  }, [servicesArray]);
+  }, [servicesArray.length]);
 
-console.log(servicesArray);
+console.log(JSON.stringify(servicesArray));
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -58,7 +59,6 @@ console.log(servicesArray);
       </Typography>
       <Divider />
       <TableContainer sx={{ maxHeight: 440 }}>
-      {/* <ServiceList /> */}
         <Table stickyHeader aria-label="sticky table">
           <TableHead>
             <TableRow>
@@ -66,21 +66,48 @@ console.log(servicesArray);
                 align='left'
                 style={{ minWidth: '100px' }}
               >
-                Name
+                Namn
+              </TableCell>
+              <TableCell
+                align='left'
+                style={{ minWidth: '100px' }}
+              >
+                Namn
+              </TableCell>
+              <TableCell
+                align='left'
+                style={{ minWidth: '100px' }}
+              >
+                Namn
+              </TableCell>
+              <TableCell
+                align='left'
+                style={{ minWidth: '100px' }}
+              >
+                Namn
               </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows
+            {servicesArray
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((row) => {
+              .map((servicesArray) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1}>
                     <TableCell  align='left'>
-                      {/* {row.name} */}
+                       {servicesArray.productName}
+                    </TableCell>
+                    <TableCell  align='left'>
+                    {servicesArray.productDescription} 
+                    </TableCell>
+                    <TableCell  align='left'>
+                    {servicesArray.timeToFinnish} 
+                    </TableCell>
+                    <TableCell  align='left'>
+                    {servicesArray.price} 
                     </TableCell>
                   </TableRow>
-                );
+                  );
               })}
           </TableBody>
         </Table>
@@ -96,4 +123,5 @@ console.log(servicesArray);
       />
     </Paper>
   );
-}
+} 
+export default observer(AdminServicesList);
