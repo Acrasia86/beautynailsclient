@@ -4,7 +4,7 @@ import LoginForm from "../features/users/LoginForm";
 import AdminHome from "../pages/AdminPage/Admin.Home";
 import Home from "../pages/Home/Home";
 import AdminServices from "../pages/AdminPage/AdminServicese";
-import AdminStuff from "../pages/AdminPage/AdminStuff";
+import AdminCustomers from "../pages/AdminPage/AdminCustomers";
 import AdminSetting from "../pages/AdminPage/AdminSetting";
 import AdminPage from "../pages/AdminPage/AdminPage";
 
@@ -16,7 +16,7 @@ export const routes: RouteObject[] = [
             {path: '', element: <Home />},
             {path: 'admin', element: <AdminPage />},
             {path: 'services', element: <AdminServices/>},
-            {path: 'stuff', element: <AdminStuff/>},
+            {path: 'customers', element: <AdminCustomers/>},
             {path: 'settings', element: <AdminSetting/>},
         ]
     }

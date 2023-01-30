@@ -1,14 +1,14 @@
 import Box from '@mui/material/Box';
 import SideNav from '../../components/SideNav';
 
-const AdminStuff = () => {
+const AdminCustomers = () => {
     return (
     <Box sx={{ display: 'flex' }}>
     <SideNav/>
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
-    <h1>Personal</h1>
+    <h1>Kunder</h1>
   </Box>
     </Box> );
 }
  
-export default AdminStuff;
+export default  AdminCustomers;

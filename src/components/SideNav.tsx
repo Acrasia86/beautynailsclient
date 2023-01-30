@@ -126,7 +126,7 @@ export default function SideNav() {
 
           </ListItem>
           <List>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick = {()=>{navigate('/stuff')}}>
+            <ListItem disablePadding sx={{ display: 'block' }} onClick = {()=>{navigate('/customers')}}>
               <ListItemButton
                 sx={{
                   minHeight: 48,
@@ -143,7 +143,7 @@ export default function SideNav() {
                 >
                   <PeopleAltIcon />
                 </ListItemIcon>
-                <ListItemText primary='Personal' sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary='Kunder' sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
           </List>
