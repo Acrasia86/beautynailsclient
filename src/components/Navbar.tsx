@@ -135,7 +135,7 @@ const {isLoggedIn, user, logout, role} = userStore;
                 {page}
               </Button>
             ))}
-            {isLoggedIn ? (<MenuItem sx={{marginLeft: '360px'}}><Typography textAlign='center'>Välkommen {user?.displayName}</Typography></MenuItem>)
+            {isLoggedIn ? (<MenuItem sx={{marginLeft: '430px'}}><Typography textAlign='center'>{user?.displayName}</Typography></MenuItem>)
             : (null)}       
               
           </Box>
@@ -173,11 +173,11 @@ const {isLoggedIn, user, logout, role} = userStore;
                   <Typography textAlign="center">Logga ut</Typography>
                 </MenuItem> 
                 }
-                {!isLoggedIn ? 
+          
                 <MenuItem style={{textDecoration: 'none'}}  onClick={() => openModal(<RegisterForm />)}>
                   <Typography textAlign="center">Skapa konto</Typography>
                 </MenuItem>
-                : null }
+           
                 { isLoggedIn ?
                 <MenuItem onClick={handleCloseUserMenu}>
                   <Link to='/admin'>
