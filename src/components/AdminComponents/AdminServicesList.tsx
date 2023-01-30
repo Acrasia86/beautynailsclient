@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { useState,useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Paper from '@mui/material/Paper';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
@@ -9,23 +9,17 @@ import TableHead from '@mui/material/TableHead';
 import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import axios from 'axios';
-import Box from "@mui/material/Box";
-import Stack from "@mui/material/Stack";
-import EditIcon from "@mui/icons-material/Edit";
+import Divider from "@mui/material/Divider"
+import IconButton from '@mui/material/IconButton';
 import DeleteIcon from "@mui/icons-material/Delete";
-// import Swal from "sweetalert2";
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
-// import ServiceList from "../../components/ServiceList"; ;
 import serviceStore from '../../stores/serviceStore';
+import EditIcon from '@mui/icons-material/Edit';
 import OneService from '../OneService'
 import { observable } from 'mobx';
 import { observer } from 'mobx-react-lite';
 
 
- function AdminServicesList() {
+function AdminServicesList() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [rows, setRows] = useState([]);
@@ -39,13 +33,13 @@ import { observer } from 'mobx-react-lite';
     setPage(0);
   };
 
-  const {servicesArray, services} = serviceStore;
+  const { servicesArray, services } = serviceStore;
 
   useEffect(() => {
     services();
   }, [servicesArray.length]);
 
-console.log(JSON.stringify(servicesArray));
+  console.log(JSON.stringify(servicesArray));
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -72,19 +66,19 @@ console.log(JSON.stringify(servicesArray));
                 align='left'
                 style={{ minWidth: '100px' }}
               >
-                Namn
+                Beskrivning
               </TableCell>
               <TableCell
                 align='left'
                 style={{ minWidth: '100px' }}
               >
-                Namn
+                Tid (min)
               </TableCell>
               <TableCell
                 align='left'
                 style={{ minWidth: '100px' }}
               >
-                Namn
+                Pris (kr)
               </TableCell>
             </TableRow>
           </TableHead>
@@ -94,20 +88,28 @@ console.log(JSON.stringify(servicesArray));
               .map((servicesArray) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell  align='left'>
-                       {servicesArray.productName}
+                    <TableCell align='left'>
+                      {servicesArray.productName}
                     </TableCell>
-                    <TableCell  align='left'>
-                    {servicesArray.productDescription} 
+                    <TableCell align='left'>
+                      {servicesArray.productDescription}
                     </TableCell>
-                    <TableCell  align='left'>
-                    {servicesArray.timeToFinnish} 
+                    <TableCell align='left'>
+                      {servicesArray.timeToFinnish}
                     </TableCell>
-                    <TableCell  align='left'>
-                    {servicesArray.price} 
+                    <TableCell align='left'>
+                      {servicesArray.price}
+                    </TableCell>
+                    <TableCell align='left'>
+                      <IconButton aria-label="delete">
+                        <DeleteIcon />
+                      </IconButton>
+                      <IconButton aria-label="delete">
+                      <EditIcon/>
+                      </IconButton>
                     </TableCell>
                   </TableRow>
-                  );
+                );
               })}
           </TableBody>
         </Table>
@@ -123,5 +125,5 @@ console.log(JSON.stringify(servicesArray));
       />
     </Paper>
   );
-} 
+}
 export default observer(AdminServicesList);
