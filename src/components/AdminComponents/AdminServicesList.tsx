@@ -80,6 +80,12 @@ function AdminServicesList() {
               >
                 Pris (kr)
               </TableCell>
+              <TableCell
+                align='left'
+                style={{ minWidth: '100px' }}
+              >
+               Ta bort/Editera
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -104,7 +110,7 @@ function AdminServicesList() {
                       <IconButton aria-label="delete">
                         <DeleteIcon />
                       </IconButton>
-                      <IconButton aria-label="delete">
+                      <IconButton aria-label="edit">
                       <EditIcon/>
                       </IconButton>
                     </TableCell>
