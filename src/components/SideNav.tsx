@@ -74,7 +74,7 @@ export default function SideNav() {
   const navigate = useNavigate();
 
   return (
-    <Box sx={{ display: 'flex' }}>
+    <Box component="div" sx={{ display: 'flex'}}>
       <CssBaseline />
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>

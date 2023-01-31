@@ -4,7 +4,7 @@ import AdminServicesList from '../../components/AdminComponents/AdminServicesLis
 
 const AdminServices = () => {
     return (
-    <Box sx={{ display: 'flex' }}>
+    <Box component="div" sx={{ display: 'flex' }}>
     <SideNav/>
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
     <AdminServicesList/>

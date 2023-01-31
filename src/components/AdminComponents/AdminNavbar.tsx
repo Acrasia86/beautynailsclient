@@ -161,7 +161,7 @@ export default function AdminNavbar() {
   );
 
   return (
-    <Box sx={{ flexGrow: 1 }}>
+    <Box component="div" sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" elevation={0} sx={{backgroundColor:'#555a54', color:'#f7f2ef'}}>
         <Toolbar>
           <IconButton
@@ -190,8 +190,8 @@ export default function AdminNavbar() {
               inputProps={{ 'aria-label': 'search' }}
             />
           </Search>
-          <Box sx={{ flexGrow: 1 }} />
-          <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
+          <Box component="div" sx={{ flexGrow: 1 }} />
+          <Box component="div" sx={{ display: { xs: 'none', md: 'flex' } }}>
             <IconButton size="large" aria-label="show 4 new mails" color="inherit">
               <Badge badgeContent={4} color="error">
                 <MailIcon />
@@ -218,7 +218,7 @@ export default function AdminNavbar() {
               <AccountCircle />
             </IconButton>
           </Box>
-          <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
+          <Box component="div" sx={{ display: { xs: 'flex', md: 'none' } }}>
             <IconButton
               size="large"
               aria-label="show more"

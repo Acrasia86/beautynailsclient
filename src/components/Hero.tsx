@@ -24,6 +24,7 @@ export default function Hero() {
       <main style={{height:'700px'}}>
 
         <Box
+        component="div"
           sx={{
             pt: 8,
             pb: 6,

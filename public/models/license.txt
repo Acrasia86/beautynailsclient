@@ -1,0 +1,8 @@
+Model Information:
+* title:	Nail Polish
+* source:	https://sketchfab.com/3d-models/nail-polish-b8c68071cbfb41a7ab7131e14b89924c
+* author:	BlendingBastian (https://sketchfab.com/blendingbastian)
+
+Model License:
+* license type:	SKETCHFAB Standard (https://sketchfab.com/licenses)
+* requirements:	Under basic restrictions, use worldwide, on all types of media, commercially or not, and in all types of derivative works
