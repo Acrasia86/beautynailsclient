@@ -13,7 +13,6 @@ const Home = () => {
       <Navbar />
       <Hero />
       {/* <ModelComponent /> */}
-      {/* <ServiceList /> */}
     </div>
   )
 }

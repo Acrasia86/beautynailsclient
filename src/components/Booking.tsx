@@ -12,6 +12,8 @@ import StepLabel from '@mui/material/StepLabel';
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import serviceStore from '../stores/serviceStore';
 import { useEffect, useState } from 'react';
+import userStore from '../stores/userStore';
+import LoginToBook from './LoginToBook';
 
 
 const Booking = () => {
@@ -20,6 +22,7 @@ const Booking = () => {
   const [age, setAge] = useState('');
   const [chosenService, setChosenService] = useState(false);
   const [chosenDate, setChosenDate] = useState(false);
+  const {isLoggedIn} = userStore;
 
   const {servicesArray, services} = serviceStore;
 
@@ -46,9 +49,9 @@ const Booking = () => {
 
   return (
     <div>
-
+      { isLoggedIn ? 
+    <div>
 <Box component="div" sx={{ width: '40%', marginLeft: '60px', marginTop: '40px' }}>
-  
       <Stepper activeStep={chosenService === true && chosenDate === true ? 2 : 1 && chosenService === true ? 1 : 0} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
@@ -70,7 +73,7 @@ const Booking = () => {
     {
       servicesArray.map((service) => {
         return (
-          <MenuItem value={service.productName}>{service.productName}</MenuItem>
+          <MenuItem value={service.productName}>{`${service.productName} ${service.price} kr`}</MenuItem>
         )
       })
     }
@@ -91,7 +94,8 @@ const Booking = () => {
       </Grid>
 
     </LocalizationProvider>
-
+    </div>
+ : <LoginToBook />}
     </div>
   );
 }
