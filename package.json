@@ -41,6 +41,7 @@
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.4",
     "styled-components": "^5.3.6",
+    "sweetalert2": "^10.3.5",
     "three": "^0.149.0",
     "three-orbitcontrols-ts": "^0.1.2",
     "typescript": "^4.9.4",

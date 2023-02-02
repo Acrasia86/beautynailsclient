@@ -75,7 +75,7 @@ export default function SideNav() {
 
   return (
     <Box component="div" sx={{ display: 'flex'}}>
-      <CssBaseline />
+      <CssBaseline /> 
       <Drawer variant="permanent" open={open}>
         <DrawerHeader>
           <IconButton onClick={() => setOpen(!open)}>
@@ -83,8 +83,8 @@ export default function SideNav() {
           </IconButton>
         </DrawerHeader>
         <Divider />
-        <List>
-          <ListItem disablePadding sx={{ display: 'block' }} onClick = {()=>{navigate('/admin')}}>
+        <List >
+          <ListItem disablePadding sx={{ display: 'block',  }} onClick = {()=>{navigate('/admin')}}>
             <ListItemButton
               sx={{
                 minHeight: 48,
