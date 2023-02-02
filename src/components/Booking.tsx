@@ -24,9 +24,8 @@ const Booking = () => {
   const {servicesArray, services} = serviceStore;
 
   const handleChange = (event: SelectChangeEvent) => {
-    setAge(event.target.value as string);
     setChosenService(true);
-
+    setAge(event.target.value as string);
   };
 
   const handleDateChange = (newDate: any) => {
@@ -47,7 +46,7 @@ const Booking = () => {
   return (
     <div>
 
-<Box component="div" sx={{ width: '40%', marginLeft: '60px' }}>
+<Box component="div" sx={{ width: '40%', marginLeft: '60px', marginTop: '40px' }}>
   
       <Stepper activeStep={chosenService === true && chosenDate === true ? 1 : 0 || chosenService === true ? 0 : -1} alternativeLabel>
         {steps.map((label) => (
@@ -85,10 +84,12 @@ const Booking = () => {
             onChange={(newDate) => handleDateChange(newDate)}
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={5}>
         </Grid>
       </Grid>
+
     </LocalizationProvider>
+
     </div>
   );
 }
