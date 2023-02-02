@@ -12,7 +12,6 @@ const Home = () => {
     <div>
       <Navbar />
       <Hero />
-      <Booking />
       {/* <ModelComponent /> */}
       {/* <ServiceList /> */}
     </div>
