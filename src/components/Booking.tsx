@@ -29,8 +29,9 @@ const Booking = () => {
   };
 
   const handleDateChange = (newDate: any) => {
-    setDate(newDate);
     setChosenDate(true);
+    setDate(newDate);
+
   }
 
   const steps = [
@@ -48,7 +49,7 @@ const Booking = () => {
 
 <Box component="div" sx={{ width: '40%', marginLeft: '60px', marginTop: '40px' }}>
   
-      <Stepper activeStep={chosenService === true && chosenDate === true ? 1 : 0 || chosenService === true ? 0 : -1} alternativeLabel>
+      <Stepper activeStep={chosenService === true && chosenDate === true ? 2 : 1 && chosenService === true ? 1 : 0} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
