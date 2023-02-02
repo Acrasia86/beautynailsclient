@@ -57,7 +57,9 @@ export default function Hero() {
         </Box>
 
         </div>
-
+        <div ref={booking}>
+          <Booking/>
+          </div>
     </ThemeProvider>
   );
 }
