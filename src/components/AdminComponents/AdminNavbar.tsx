@@ -4,7 +4,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import MenuIcon from '@mui/icons-material/Menu';
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from '@mui/material/AppBar';
 import DiamondIcon from '@mui/icons-material/Diamond';
 
@@ -15,9 +14,6 @@ const AppBar = styled(MuiAppBar, {})
   }));
 
 export default function AdminNavbar() {
-
-  return (
-    <Box component="div" sx={{ flexGrow: 1 }}>
       <AppBar position="fixed" elevation={0} sx={{ backgroundColor: '#555a54', color: '#f7f2ef' }}>
         <Toolbar>
         <DiamondIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: '#f7f2ef' }} />
@@ -30,8 +26,7 @@ export default function AdminNavbar() {
           >
             Beauty Nails Dashboard
           </Typography>
-          <Box component="div" sx={{ flexGrow: 1 }} />
-          <Box component="div" sx={{ display: { xs: 'none', md: 'flex' } }}>
+
           </Box>
         </Toolbar>
       </AppBar>
