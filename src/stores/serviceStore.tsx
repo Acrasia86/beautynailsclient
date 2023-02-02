@@ -24,6 +24,20 @@ class serviceStore {
             throw new Error("Something went wrong loading services");
         }
     }
+
+    // removeService = async (id: number) => {
+    //     try {
+    //         await agent.products.delete(id);
+    //         if(!id) {
+    //             return new Error('No id found')
+    //         }
+    //         runInAction(() => {
+    //             this.employee = [...this.employee.filter(x => x.id !== id)]
+    //         })
+    //     } catch(err) {
+    //         console.log(err);
+    //     }
+    // }
 }
 
 export default new serviceStore();
