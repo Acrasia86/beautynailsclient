@@ -15,7 +15,7 @@ import { useEffect, useState } from 'react';
 
 
 const Booking = () => {
-  const [date, setDate] = useState<Dayjs | null>(dayjs("2022-04-07"));
+  const [date, setDate] = useState<Dayjs | null>(dayjs(new Date()));
 
   const [age, setAge] = useState('');
   const [chosenService, setChosenService] = useState(false);
