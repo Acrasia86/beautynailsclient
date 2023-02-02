@@ -1,4 +1,5 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
+import { Checkout } from '../interfaces/Checkout';
 import { Service } from '../interfaces/Service';
 import { Role, User, UserFormValues } from '../interfaces/User';
 import store from '../stores/store';
@@ -26,6 +27,11 @@ const products = {
     delete: (id: string) => requests.del<void>(`/product/${id}`)
 }
 
+const checkout = {
+    details: (id: string) => requests.get<Checkout>(`/checkout/${id}`),
+    create: (checkout: Checkout) => requests.post<Checkout>('/checkout', checkout),
+}
+
 const account = {
     current: () => requests.get<User>('/account'),
     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
@@ -36,7 +42,8 @@ const account = {
 
 const agent = {
     products,
-    account
+    account,
+    checkout
 }
 
 export default agent;

@@ -28,6 +28,7 @@
     "@types/semantic-ui": "^2.2.7",
     "@types/three": "^0.149.0",
     "axios": "^1.2.2",
+    "dayjs": "^1.11.7",
     "formik": "^2.2.9",
     "mobx": "^6.7.0",
     "mobx-react": "^7.6.0",
