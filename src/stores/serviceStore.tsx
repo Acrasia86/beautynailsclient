@@ -25,19 +25,32 @@ class serviceStore {
         }
     }
 
-    // removeService = async (id: number) => {
-    //     try {
-    //         await agent.products.delete(id);
-    //         if(!id) {
-    //             return new Error('No id found')
-    //         }
-    //         runInAction(() => {
-    //             this.employee = [...this.employee.filter(x => x.id !== id)]
-    //         })
-    //     } catch(err) {
-    //         console.log(err);
-    //     }
-    // }
+    removeService = async (id: number) => {
+        try {
+            await agent.products.delete(id);
+            if(!id) {
+                return new Error('No service id found')
+            }
+            runInAction(() => {
+                this.servicesArray = [...this.servicesArray.filter(x => x.id !== id)]
+            })
+        } catch(err) {
+            console.log(err);
+        }
+    }
+
+    updateService = async (service: Service) => {
+        try {
+            let updateService = await agent.products.update(service);
+
+            runInAction(() => {
+                 return updateService
+            })
+        
+        } catch(error) {
+            return new Error('Something went wrong updating service');
+        }
+    }
 }
 
 export default new serviceStore();
