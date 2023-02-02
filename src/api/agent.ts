@@ -28,7 +28,7 @@ const products = {
 }
 
 const checkout = {
-    details: (id: string) => requests.get<Checkout>(`/checkout/${id}`),
+    details: (id: number) => requests.get<Checkout>(`/checkout/${id}`),
     create: (checkout: Checkout) => requests.post<Checkout>('/checkout', checkout),
 }
 

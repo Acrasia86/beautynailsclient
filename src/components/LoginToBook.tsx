@@ -10,7 +10,7 @@ const LoginToBook = () => {
     <div style={{display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh', paddingBottom: '100px'}}>
      <div>
     <h1>Du måste vara inloggad för att boka en tid</h1>
-    <Button onClick={() => openModal(<LoginForm />)} variant="contained" color="success">Logga in</Button>
+    <Button style={{marginTop: '20px'}} onClick={() => openModal(<LoginForm />)} variant="contained" color="success">Logga in</Button>
     </div>
     </div>
   )
