@@ -81,6 +81,7 @@ const Booking = () => {
         <Grid item xs={12} md={6}>
           <CalendarPicker
             date={date}
+            disabled={!chosenService}
             onChange={(newDate) => handleDateChange(newDate)}
           />
         </Grid>
