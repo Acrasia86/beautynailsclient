@@ -4,7 +4,6 @@ import Grid from '@mui/material/Grid';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
-import AdminNavbar from '../../components/AdminComponents/AdminNavbar';
 import Stack from '@mui/material/Stack';
 import EventBusyIcon from '@mui/icons-material/EventBusy';
 import TaskAltIcon from '@mui/icons-material/TaskAlt';
@@ -13,13 +12,15 @@ import SavingsIcon from '@mui/icons-material/Savings';
 import Avatar from '@mui/material/Avatar';
 import Calendar from '../../components/Calendar'
 import CountUp from 'react-countup';
+import AdminNavbar from '../../components/AdminComponents/AdminNavbar';
 
 const Dashboard = () => {
 
   return (<>
 
     <div className='admin-container'>
-      <AdminNavbar />
+      {/* Denna här fungerar inte */}
+      {/* <AdminNavbar /> */}
       <Box component="div" height={70} />
       <Box component="div" sx={{ display: 'flex' }}>
         <SideNav />

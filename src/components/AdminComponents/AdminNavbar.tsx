@@ -27,9 +27,7 @@ export default function AdminNavbar() {
             Beauty Nails Dashboard
           </Typography>
 
-          </Box>
+          
         </Toolbar>
-      </AppBar>
-    </Box>
-  );
+      </AppBar> 
 }
