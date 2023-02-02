@@ -11,19 +11,28 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
 import serviceStore from '../stores/serviceStore';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 
 const Booking = () => {
-  const [date, setDate] = React.useState<Dayjs | null>(dayjs("2022-04-07"));
+  const [date, setDate] = useState<Dayjs | null>(dayjs("2022-04-07"));
 
-  const [age, setAge] = React.useState('');
+  const [age, setAge] = useState('');
+  const [chosenService, setChosenService] = useState(false);
+  const [chosenDate, setChosenDate] = useState(false);
 
   const {servicesArray, services} = serviceStore;
 
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
+    setChosenService(true);
+
   };
+
+  const handleDateChange = (newDate: any) => {
+    setDate(newDate);
+    setChosenDate(true);
+  }
 
   const steps = [
     'Tjänst',
@@ -39,7 +48,8 @@ const Booking = () => {
     <div>
 
 <Box component="div" sx={{ width: '40%', marginLeft: '60px' }}>
-      <Stepper activeStep={-1} alternativeLabel>
+  
+      <Stepper activeStep={chosenService === true && chosenDate === true ? 1 : 0 || chosenService === true ? 0 : -1} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
@@ -72,8 +82,7 @@ const Booking = () => {
         <Grid item xs={12} md={6}>
           <CalendarPicker
             date={date}
-            onChange={(newDate) => setDate(newDate)}
-            disabled
+            onChange={(newDate) => handleDateChange(newDate)}
           />
         </Grid>
         <Grid item xs={12} md={6}>
