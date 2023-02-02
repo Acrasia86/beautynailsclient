@@ -24,7 +24,7 @@ const products = {
     details: (id: string) => requests.get<Service>(`/product/${id}`),
     create: (product: Service) => requests.post<Service>('/product', product),
     update: (product: Service) => requests.put<void>('/product', product),
-    delete: (id: string) => requests.del<void>(`/product/${id}`)
+    delete: (id: number) => requests.del<void>(`/product/${id}`)
 }
 
 const checkout = {
