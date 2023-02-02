@@ -3,7 +3,7 @@ import SideNav from '../../components/SideNav';
 
 const AdminHome = () => {
     return (<>
-    <Box sx={{ display: 'flex' }}>
+    <Box component="div" sx={{ display: 'flex' }}>
     <SideNav/>
     <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
     <h1>Hem</h1>

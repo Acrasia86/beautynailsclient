@@ -8,6 +8,17 @@ import userStore from './stores/userStore';
 import store from './stores/store';
 import { observer } from 'mobx-react-lite';
 import ModalContainer from './common/ModalContainer';
+import { Canvas, extend, useThree, ReactThreeFiber } from '@react-three/fiber';
+import { OrbitControls } from 'three-orbitcontrols-ts';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      orbitControls: ReactThreeFiber.Object3DNode<OrbitControls, typeof OrbitControls>
+    }
+  }
+}
+
 
 
 

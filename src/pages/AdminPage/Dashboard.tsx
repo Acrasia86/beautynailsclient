@@ -20,8 +20,8 @@ const Dashboard = () => {
 
     <div className='admin-container'>
       <AdminNavbar />
-      <Box height={70} />
-      <Box sx={{ display: 'flex' }}>
+      <Box component="div" height={70} />
+      <Box component="div" sx={{ display: 'flex' }}>
         <SideNav />
         <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
           <Grid container spacing={2}>
@@ -88,7 +88,7 @@ const Dashboard = () => {
               </Stack>
             </Grid>
           </Grid>
-          <Box height={20} />
+          <Box component="div" height={20} />
           <Grid container spacing={2}>
             <Grid item xs={8}>
               <Card sx={{ minheight: 60 + 'vh', background: '#f7f2ef' }}>

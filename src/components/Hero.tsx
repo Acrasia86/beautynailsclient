@@ -6,6 +6,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import {useRef} from 'react'
+import Booking from './Booking';
 
 const theme = createTheme();
 
@@ -21,9 +22,10 @@ export default function Hero() {
 
   return (
     <ThemeProvider theme={theme}>
-      <main style={{height:'700px'}}>
+<div style={{height: '100vh'}}>
 
         <Box
+        component="div"
           sx={{
             pt: 8,
             pb: 6,
@@ -53,10 +55,11 @@ export default function Hero() {
             </Stack>
           </Container>
         </Box>
-      </main>
-      <section ref={booking} className="booking" style={{height:'1000px',background:'white', color: "red"}}>
-        <h1>Här kommer bokigssida</h1>
-      </section>
+
+        </div>
+        <div ref={booking}>
+          <Booking/>
+          </div>
     </ThemeProvider>
   );
 }

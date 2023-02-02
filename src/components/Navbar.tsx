@@ -66,7 +66,7 @@ const {isLoggedIn, user, logout, role} = userStore;
             Beauty Nails
           </Typography>
          
-          <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
+          <Box component="div" sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
      
             <IconButton
               size="large"
@@ -122,7 +122,7 @@ const {isLoggedIn, user, logout, role} = userStore;
           >
             Beauty Nails
           </Typography>
-          <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
+          <Box component="div" sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -137,7 +137,7 @@ const {isLoggedIn, user, logout, role} = userStore;
               
           </Box>
           
-          <Box sx={{ flexGrow: 0 }}>
+          <Box component="div" sx={{ flexGrow: 0 }}>
             <Tooltip title="Öppna instälningar">
               <IconButton className='personIcon' onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Face3Icon />
