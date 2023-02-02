@@ -27,8 +27,8 @@ const Booking = () => {
   const {servicesArray, services} = serviceStore;
 
   const handleChange = (event: SelectChangeEvent) => {
-    setChosenService(true);
 
+    setChosenService(true);
     setService(event.target.value as string);
 
   };
@@ -46,9 +46,10 @@ const Booking = () => {
   ];
 
   useEffect(() => {
-    services();
     console.log(service);
-  }, [servicesArray.length, service.length + 1])
+    services();
+ 
+  }, [servicesArray.length, service])
 
   return (
     <div>
