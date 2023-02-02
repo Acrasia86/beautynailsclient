@@ -10,12 +10,16 @@ import Stepper from '@mui/material/Stepper';
 import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import { FormControl, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material';
+import serviceStore from '../stores/serviceStore';
+import { useEffect } from 'react';
 
 
 const Booking = () => {
   const [date, setDate] = React.useState<Dayjs | null>(dayjs("2022-04-07"));
 
   const [age, setAge] = React.useState('');
+
+  const {servicesArray, services} = serviceStore;
 
   const handleChange = (event: SelectChangeEvent) => {
     setAge(event.target.value as string);
@@ -27,11 +31,15 @@ const Booking = () => {
     'Bekräfta',
   ];
 
+  useEffect(() => {
+    services();
+  }, [servicesArray.length])
+
   return (
     <div>
 
 <Box component="div" sx={{ width: '40%', marginLeft: '60px' }}>
-      <Stepper activeStep={0} alternativeLabel>
+      <Stepper activeStep={-1} alternativeLabel>
         {steps.map((label) => (
           <Step key={label}>
             <StepLabel>{label}</StepLabel>
@@ -49,9 +57,13 @@ const Booking = () => {
     label="Age"
     onChange={handleChange}
   >
-    <MenuItem value={10}>Naglar</MenuItem>
-    <MenuItem value={20}>Mer naglar</MenuItem>
-    <MenuItem value={30}>Ännu mer naglar</MenuItem>
+    {
+      servicesArray.map((service) => {
+        return (
+          <MenuItem value={service.productName}>{service.productName}</MenuItem>
+        )
+      })
+    }
   </Select>
 </FormControl>
 
