@@ -19,7 +19,7 @@ import LoginToBook from './LoginToBook';
 const Booking = () => {
   const [date, setDate] = useState<Dayjs | null>(dayjs(new Date()));
 
-  const [age, setAge] = useState('');
+  const [service, setService] = useState('');
   const [chosenService, setChosenService] = useState(false);
   const [chosenDate, setChosenDate] = useState(false);
   const {isLoggedIn} = userStore;
@@ -28,7 +28,9 @@ const Booking = () => {
 
   const handleChange = (event: SelectChangeEvent) => {
     setChosenService(true);
-    setAge(event.target.value as string);
+
+    setService(event.target.value as string);
+
   };
 
   const handleDateChange = (newDate: any) => {
@@ -45,7 +47,8 @@ const Booking = () => {
 
   useEffect(() => {
     services();
-  }, [servicesArray.length])
+    console.log(service);
+  }, [servicesArray.length, service.length + 1])
 
   return (
     <div>
@@ -66,7 +69,7 @@ const Booking = () => {
   <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
-    value={age}
+    value={service}
     label="Age"
     onChange={handleChange}
   >
