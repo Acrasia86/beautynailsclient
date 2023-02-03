@@ -26,6 +26,7 @@ function AdminServicesList() {
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [rows, setRows] = useState([]);
 
+
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
   };
@@ -35,7 +36,7 @@ function AdminServicesList() {
     setPage(0);
   };
 
-  const { servicesArray, services } = serviceStore;
+  const { servicesArray, services, removeService, updateService } = serviceStore;
 
   useEffect(() => {
     services();
@@ -141,6 +142,7 @@ function AdminServicesList() {
                                 cursor: "pointer",
                               }}
                               onClick={() => {
+                                removeService(servicesArray.id)
                                 // deleteService(servicesArray.id)
                               }}
                             />
