@@ -1,0 +1,39 @@
+import { ContactShadows, PresentationControls, Float, Text, } from '@react-three/drei'
+import { useLoader } from '@react-three/fiber'
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
+import { useAnimations } from '@react-three/drei'
+
+
+export default function NailPolis() {
+    const model = useLoader(GLTFLoader, './models/scene.gltf')
+    console.log(model)
+    const animations = useAnimations(model.animations, model.scene)
+    console.log(animations)
+    return <>
+
+
+        <directionalLight castShadow position={[1, 2, 3]} intensity={1.5} />
+        <ambientLight intensity={0.5} />
+
+        <PresentationControls global
+            rotation={[0.1, 0.1, 0]}>
+            <Float>
+                <primitive
+                    object={model.scene}
+                    scale={16}
+                    position={[3, -1.1, 1.2]} >
+                </primitive>
+                <Text
+                    // fontSize={3}
+                    position={[-1.2, 1, 2]}
+                    color='#555a54'
+                    maxWidth={2}
+                    textAlign='left'
+                >Beauty Nails</Text>
+            </Float>
+        </PresentationControls>
+        <ContactShadows position-y={- 1.4} opacity={0.5} blur={2.4} />
+
+    </>
+
+}

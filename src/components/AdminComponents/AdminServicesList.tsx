@@ -42,7 +42,7 @@ function AdminServicesList() {
     services();
   }, [servicesArray.length]);
 
-  console.log(JSON.stringify(servicesArray));
+  // console.log(JSON.stringify(servicesArray));
 
   const deleteService = (id: any) => {
     Swal.fire({
@@ -53,10 +53,6 @@ function AdminServicesList() {
       confirmButtonColor: "#3085d6",
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
-    // }).then((result) => {
-    //   if (result.value) {
-    //     deleteApi(id);
-    //   }
     });
   };
 
@@ -133,7 +129,9 @@ function AdminServicesList() {
                                 cursor: "pointer",
                               }}
                               className="cursor-pointer"
-                              // onClick={() => editUser(row.id)}
+                              onClick={() => {
+                                // updateService()
+                              }}
                             />
                             <DeleteIcon
                               style={{
@@ -143,7 +141,6 @@ function AdminServicesList() {
                               }}
                               onClick={() => {
                                 removeService(servicesArray.id)
-                                // deleteService(servicesArray.id)
                               }}
                             />
                           </Stack>
