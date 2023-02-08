@@ -15,7 +15,6 @@ const TestBooking = () => {
     const {createCheckout} = checkoutStore;
     const {user, getUser} = userStore;
 
-    console.log('serviceObj ' +serviceObj?.id)
 
     const initialCheckoutState = {
         id: uuidv4(),
@@ -31,13 +30,14 @@ const TestBooking = () => {
   
    
     const handleChange = (event: SelectChangeEvent) => {
+      const {name, value} = event.target;
         setService(event.target.value as string);
+        setInitCheckout({...initCheckout, [name]: value})
     }
 
     const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const {name, value} = e.target;
         setInitCheckout({...initCheckout, [name]: value})
-        console.log('changed: ' + name + ' ' + 'value: ' + value)
       }
 
       const onSubmit = () => {
@@ -79,16 +79,13 @@ const TestBooking = () => {
   <Input id="my-input" onChange={handleInputChange} name="phoneNumber" aria-describedby="my-helper-text" />
   <FormHelperText id="my-helper-text">Telefonnummer</FormHelperText>
   </FormControl>
-  <FormControl>
-    <Input name='productId' onChange={handleInputChange} value={serviceObj?.id}/>
-    </FormControl>
 </div>
    <FormControl>
   <InputLabel id="demo-simple-select-label">Välj en tjänst</InputLabel>
   <Select
     labelId="demo-simple-select-label"
     id="demo-simple-select"
-    name="productName"
+    name="productId"
     value={service}
     label="Age"
     onChange={handleChange}
@@ -96,7 +93,7 @@ const TestBooking = () => {
     { 
       servicesArray.map((service) => {
         return (
-          <MenuItem id={`${service.id}`} value={service.productName}>{`${service.productName} ${service.price} kr`}</MenuItem>
+          <MenuItem id={`${service.id}`} value={service.id}>{`${service.productName} ${service.price} kr`}</MenuItem>
         )
       })
     }

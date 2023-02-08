@@ -13,6 +13,7 @@ class checkoutStore {
 
     createCheckout = async (checkout: Checkout) => {
         try {
+            
             await agent.checkout.create(checkout)
         } catch (error) {
             throw new Error("Something went wrong checking out");
