@@ -5,6 +5,7 @@ import { Service } from "../interfaces/Service";
 class serviceStore {
 
     servicesArray: Service[] = [];
+    serviceObj: Service | undefined = undefined;
 
     constructor() {
         makeAutoObservable(this);
@@ -50,6 +51,19 @@ class serviceStore {
         } catch(error) {
             return new Error('Something went wrong updating service');
         }
+    }
+
+    setServiceObj = (serviceObj: {   id: number;
+        productName: string;
+        productDescription: string;
+        timeToFinnish: string;
+        imageUrl: string;
+        price: number;}) => {
+        this.serviceObj = serviceObj;
+    }
+
+    selectService = (id: number) => {
+        this.serviceObj = this.servicesArray.find(x => x.id === id);
     }
 }
 

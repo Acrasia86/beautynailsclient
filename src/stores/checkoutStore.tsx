@@ -5,7 +5,7 @@ import { Checkout } from "../interfaces/Checkout";
 
 class checkoutStore {
 
-    checkout: Checkout | null = null;
+    checkout: {} = {};
 
     constructor() {
         makeAutoObservable(this);
@@ -30,9 +30,18 @@ class checkoutStore {
         } catch(err) {
             throw new Error("Something went wrong loading checkout details");
 
-        }
-    
+        }    
 }
+    setCheckOut = (checkout: {  id: string;
+        productId?: number;
+        bookedDate?: string;
+        dailySum?: number;
+        monthlySum?: number;
+        address?: string;
+        zipCode?: string;
+        phoneNumber?: string;}) => {
+        this.checkout = checkout;
+    }
 
 }
 
