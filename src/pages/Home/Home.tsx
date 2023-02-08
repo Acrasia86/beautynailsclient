@@ -4,13 +4,17 @@ import Hero from '../Hero';
 import ModelComponent from '../../components/ModelComponent';
 import Navbar from '../../components/Navbar';
 import ServiceList from '../../components/ServiceList';
+import PriceList from '../PriceList';
+import Footer from '../../components/Footer';
 
 const Home = () => {
   return (
     <div>
       <Navbar />
-      <Hero />
-      {/* <ModelComponent /> */}
+      {/* <Hero /> */}
+      <Booking/>
+      <PriceList />
+      <Footer/>
     </div>
   )
 }

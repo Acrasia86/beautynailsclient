@@ -16,18 +16,11 @@ export default function NailPolis() {
             <Float>
                 <primitive
                     object={model.scene}
-                    scale={16}
-                    position={[3, -1.1, 1.2]} >
-                </primitive>
-                <Text
-                    // fontSize={3}
-                    position={[-1.2, 1, 2]}
-                    color='#555a54'
-                    maxWidth={2}
-                    textAlign='left'
-                >Beauty Nails </Text>
-                
+                    scale={30}
+                    position={[3, -2, 1.2]} >
+                </primitive>   
             </Float>
+           
         </PresentationControls>
         <ContactShadows position-y={- 1.4} opacity={0.5} blur={2.4} />
 
