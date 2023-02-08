@@ -2,7 +2,6 @@ import { observer } from 'mobx-react-lite';
 import React, { useRef } from 'react'
 import { Parallax, ParallaxLayer, IParallax } from '@react-spring/parallax'
 import styles from './styles.module.css'
-import Booking from '../../components/Booking';
 import Hero from '../Hero';
 import Navbar from '../../components/Navbar';
 import PriceList from '../PriceList';
