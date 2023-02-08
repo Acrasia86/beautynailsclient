@@ -1,0 +1,11 @@
+Model Information:
+* title:	Makeup & Cosmetics
+* source:	https://sketchfab.com/3d-models/makeup-cosmetics-97038c2b5b7d44b1851ba9e33fbd20d7
+* author:	DianaV.Mendoza (https://sketchfab.com/DianaV.Mendoza)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Makeup & Cosmetics" (https://sketchfab.com/3d-models/makeup-cosmetics-97038c2b5b7d44b1851ba9e33fbd20d7) by DianaV.Mendoza (https://sketchfab.com/DianaV.Mendoza) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)

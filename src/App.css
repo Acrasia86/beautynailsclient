@@ -1,46 +1,66 @@
-*{
+* {
     font-family: 'Nunito', sans-serif;
+    box-sizing: border-box;
+}
+
+body,
+html,
+#root {
+    width: 100%;
+    height: 100%;
     margin: 0;
-}
-body {
-    /* background-image: linear-gradient(to left top, #fef8f0, #ffedd4, #ffe1b8, #ffd69d, #ffca82); */
+    padding: 0;
     background-image: linear-gradient(to left top, #f7f2ef, #f2ece8, #ede7e0, #e7e2d9, #e1ddd2);
-    height: 200vh;
+
 }
-:root{
+
+:root {
     --dark-gray: #555a54;
-    --light-gray:#bfbbaf;
+    --light-gray: #bfbbaf;
     --sand-sand: #e1ddd2;
     --white: #f7f2ef;
 }
 
-.personIcon {
- margin-bottom: 3px !important; 
- margin-right: 30px !important;
+canvas {
+    width: 100%;
+    height: 100%;
+    touch-action: none;
 }
-.dashboad-info{
+
+.personIcon {
+    margin-bottom: 3px !important;
+    margin-right: 30px !important;
+}
+
+.dashboad-info {
     padding: 10px;
 }
-.info-title{
+
+.info-title {
     font-weight: 900;
 }
-.info-subtitle{
+
+.info-subtitle {
     font-size: 14px;
 }
-.info-icon{
+
+.info-icon {
     margin-top: 20px;
     margin-left: 20px;
 }
-.income1{
+
+.income1 {
     background-image: linear-gradient(to right bottom, #e1ddd2, #e5dda7, #dde07d, #c9e552, #a8eb12);
 }
-.income2{
+
+.income2 {
     background-image: linear-gradient(to left bottom, #e1ddd2, #e5dda7, #dde07d, #c9e552, #a8eb12);
 }
-.admin-container{
+
+.admin-container {
     min-height: 100vh;
 }
 
 .MuiCalendarPicker-root {
-    background-color: rgba(0, 0, 0 ,0) !important;
+    background-color: rgba(0, 0, 0, 0) !important;
 }
