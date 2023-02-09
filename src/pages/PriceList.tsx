@@ -27,7 +27,7 @@ function AdminServicesList() {
   console.log(JSON.stringify(servicesArray));
 
   return (
-    <Paper elevation={24}  sx={{ width: '80%', overflow: 'hidden', m:'200px', background:'#e1ddd2' }}>
+    <Paper elevation={24}  sx={{ width: '100%', overflow: 'hidden', background:'#e1ddd2' }}>
       <Typography
         gutterBottom
         variant="h4"

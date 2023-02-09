@@ -12,15 +12,12 @@ import SavingsIcon from '@mui/icons-material/Savings';
 import Avatar from '@mui/material/Avatar';
 import Calendar from '../../components/Calendar'
 import CountUp from 'react-countup';
-import AdminNavbar from '../../components/AdminComponents/AdminNavbar';
 
 const Dashboard = () => {
 
   return (<>
 
     <div className='admin-container'>
-      {/* Denna här fungerar inte */}
-      {/* <AdminNavbar /> */}
       <Box component="div" height={70} />
       <Box component="div" sx={{ display: 'flex' }}>
         <SideNav />
