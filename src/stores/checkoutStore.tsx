@@ -6,6 +6,9 @@ import { Checkout } from "../interfaces/Checkout";
 class checkoutStore {
 
     checkout: {} = {};
+    dateChosen: boolean = false;
+    nextStepChosen: boolean = false;
+    confirmChosen: boolean = false;
 
     constructor() {
         makeAutoObservable(this);
@@ -13,8 +16,8 @@ class checkoutStore {
 
     createCheckout = async (checkout: Checkout) => {
         try {
-            
-            await agent.checkout.create(checkout)
+             await agent.checkout.create(checkout);
+
         } catch (error) {
             throw new Error("Something went wrong checking out");
         }
@@ -31,18 +34,21 @@ class checkoutStore {
         } catch(err) {
             throw new Error("Something went wrong loading checkout details");
 
-        }    
+        }
 }
-    setCheckOut = (checkout: {  id: string;
-        productId?: number;
-        bookedDate?: string;
-        dailySum?: number;
-        monthlySum?: number;
-        address?: string;
-        zipCode?: string;
-        phoneNumber?: string;}) => {
-        this.checkout = checkout;
+
+    setDateChosen = (dateChosen: boolean) => {
+        this.dateChosen = dateChosen;
     }
+
+    setNextStepChosen = (nextStepChosen: boolean) => {
+        this.nextStepChosen = nextStepChosen;
+    }
+
+    setConfirmChosen = (confirmChosen: boolean) => {
+        this.confirmChosen = confirmChosen;
+    }
+   
 
 }
 

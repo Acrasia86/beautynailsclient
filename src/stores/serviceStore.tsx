@@ -6,6 +6,8 @@ class serviceStore {
 
     servicesArray: Service[] = [];
     serviceObj: Service | undefined = undefined;
+    serviceChosen: boolean = false;
+    service: string = '';
 
     constructor() {
         makeAutoObservable(this);
@@ -53,18 +55,18 @@ class serviceStore {
         }
     }
 
-    setServiceObj = (serviceObj: {   id: number;
-        productName: string;
-        productDescription: string;
-        timeToFinnish: string;
-        imageUrl: string;
-        price: number;}) => {
-        this.serviceObj = serviceObj;
-    }
-
     selectService = (id: number) => {
         this.serviceObj = this.servicesArray.find(x => x.id === id);
     }
+
+    setServiceChosen = (serviceChosen: boolean) => {
+        this.serviceChosen = serviceChosen;
+    }
+
+    setService = (service: string) => {
+        this.service = service;
+    }
+
 }
 
 export default new serviceStore();

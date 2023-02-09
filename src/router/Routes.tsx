@@ -7,6 +7,7 @@ import AdminServices from "../pages/AdminPage/AdminServicese";
 import AdminCustomers from "../pages/AdminPage/AdminCustomers";
 import AdminSetting from "../pages/AdminPage/AdminSetting";
 import AdminPage from "../pages/AdminPage/AdminPage";
+import ThankYou from "../components/Booking/ThankYou";
 
 export const routes: RouteObject[] = [
     {
@@ -18,6 +19,7 @@ export const routes: RouteObject[] = [
             {path: 'services', element: <AdminServices/>},
             {path: 'customers', element: <AdminCustomers/>},
             {path: 'settings', element: <AdminSetting/>},
+            {path: 'thankyou', element: <ThankYou/>},
         ]
     }
 ]

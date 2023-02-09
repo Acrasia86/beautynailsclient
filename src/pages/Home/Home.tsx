@@ -6,13 +6,16 @@ import Hero from '../Hero';
 import Navbar from '../../components/Navbar';
 import PriceList from '../PriceList';
 import Footer from '../../components/Footer';
+import TestBooking from '../../components/TestBooking';
 
 
 const Home=()=> {
   const parallax = useRef<IParallax>(null!)
   return (
-    <div style={{ width: '100%', height: '100%', background: '#253237' }}>
-    <Parallax ref={parallax} pages={3}>
+    // background: '#253237' 
+    <div style={{ width: '100%', height: '100%'}}>
+       <TestBooking/>
+    {/* <Parallax ref={parallax} pages={3}>
       <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: '#e1ddd2' }} />
       <ParallaxLayer offset={2} speed={1} style={{ backgroundColor: '#e7e2d9' }} />
       <ParallaxLayer
@@ -28,7 +31,7 @@ const Home=()=> {
       </ParallaxLayer>
 
       <ParallaxLayer offset={1} speed={0.8}>
-      <Booking/>
+     
       </ParallaxLayer>
 
       <ParallaxLayer offset={1.75} speed={0.5}>
@@ -88,7 +91,7 @@ const Home=()=> {
         }}
         onClick={() => parallax.current.scrollTo(0)}>
       </ParallaxLayer>
-    </Parallax>
+    </Parallax> */}
   </div>
   )
 }

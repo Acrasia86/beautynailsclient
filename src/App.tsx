@@ -10,6 +10,7 @@ import { observer } from 'mobx-react-lite';
 import ModalContainer from './common/ModalContainer';
 import { Canvas, extend, useThree, ReactThreeFiber } from '@react-three/fiber';
 import { OrbitControls } from 'three-orbitcontrols-ts';
+import LoadingBar from './components/LoadingBar';
 
 declare global {
   namespace JSX {

@@ -1,129 +1,103 @@
-import { Button, FormControl, FormHelperText, Input, InputLabel, MenuItem, Select, SelectChangeEvent, TextField } from "@mui/material";
-import { observer } from "mobx-react-lite"
+import {
+  Box,
+  Button,
+  SelectChangeEvent,
+  Step,
+  StepLabel,
+  Stepper,
+} from "@mui/material";
+import { observer } from "mobx-react-lite";
 import { ChangeEvent, useEffect, useState } from "react";
 import checkoutStore from "../stores/checkoutStore";
 import serviceStore from "../stores/serviceStore";
-import { v4 as uuidv4 } from 'uuid';
-import userStore from "../stores/userStore";
-import { Service } from "../interfaces/Service";
+import { v4 as uuidv4 } from "uuid";
+import UserInputs from "./Booking/UserInputs";
+import ServiceDropDown from "./Booking/ServiceDropDown";
+import BookingDatePicker from "./Booking/BookingDatePicker";
+import UserFeedback from "./Booking/UserFeedback";
+import BookingStepper from "./Booking/BookingStepper";
+import { useNavigate } from "react-router-dom";
 
 const TestBooking = () => {
 
-    const [service, setService] = useState('');
-    
-    const {servicesArray, services, selectService, serviceObj} = serviceStore;
-    const {createCheckout} = checkoutStore;
-    const {user, getUser} = userStore;
 
+  const { servicesArray, services, serviceObj, setServiceChosen, service, setService, selectService } = serviceStore;
+  const { createCheckout, dateChosen, setDateChosen, nextStepChosen, setConfirmChosen } = checkoutStore;
+  const navigate = useNavigate();
 
-    const initialCheckoutState = {
-        id: uuidv4(),
-        productId: serviceObj?.id,
-        bookedDate: '',
-        dailySum: 0,
-        monthlySum: 0,
-        address: '',
-        zipCode: '',
-        phoneNumber: ''
-    }
-    const [initCheckout, setInitCheckout] = useState(initialCheckoutState)
-  
-   
-    const handleChange = (event: SelectChangeEvent) => {
-      const {name, value} = event.target;
-        setService(event.target.value as string);
-        setInitCheckout({...initCheckout, [name]: value})
-    }
+  const initialCheckoutState = {
+    id: uuidv4(),
+    productId: 0,
+    bookedDate: "",
+    address: "",
+    zipCode: "",
+    phoneNumber: "",
+  };
 
-    const handleInputChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const {name, value} = e.target;
-        setInitCheckout({...initCheckout, [name]: value})
-      }
+  const [initCheckout, setInitCheckout] = useState(initialCheckoutState);
 
-      const onSubmit = () => {
-        createCheckout(initCheckout);
-      }
-    
+  const handleChange = (event: SelectChangeEvent) => {
+    const { name, value } = event.target;
+    setService(event.target.value as string);
+    setInitCheckout({ ...initCheckout, [name]: value });
+    setServiceChosen(true);
+  };
 
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setInitCheckout({ ...initCheckout, [name]: value });
+  };
 
-    useEffect(() => {
-       
-        servicesArray.map((serv) => {
-            if(serv.productName.includes(service)) {
-                selectService(serv.id)
-            }
-        })
-        getUser();
-        services();
+  const handleDateChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setInitCheckout({ ...initCheckout, [name]: value });
+    setDateChosen(true);
+  };
 
-    }, [servicesArray.length, serviceObj, service, initCheckout])
+  const onSubmit = () => {
+    createCheckout(initCheckout);
+    setConfirmChosen(true);
+    navigate('/thankyou')
+  };
+
+  useEffect(() => {
+
+    selectService(initCheckout.productId);
+    services();
+  }, [servicesArray.length, serviceObj, service, initCheckout]);
 
   return (
     <div>
-    <div style={{display: 'flex', flexDirection: 'column'}}>
-<div>
-
-<FormControl>
-    <Input disabled placeholder={user?.userName} id="my-input" aria-describedby="my-helper-text" />
-  <FormHelperText id="my-helper-text">Användare</FormHelperText>
-  </FormControl>
-  <FormControl>
-  <Input id="my-input" onChange={handleInputChange} name="address" aria-describedby="my-helper-text" />
-  <FormHelperText id="my-helper-text">Adress</FormHelperText>
-  </FormControl>
-  <FormControl>
-  <Input id="my-input" onChange={handleInputChange} name="zipCode" aria-describedby="my-helper-text" />
-  <FormHelperText id="my-helper-text">PostKod</FormHelperText>
-  </FormControl>
-  <FormControl>
-  <Input id="my-input" onChange={handleInputChange} name="phoneNumber" aria-describedby="my-helper-text" />
-  <FormHelperText id="my-helper-text">Telefonnummer</FormHelperText>
-  </FormControl>
-</div>
-   <FormControl>
-  <InputLabel id="demo-simple-select-label">Välj en tjänst</InputLabel>
-  <Select
-    labelId="demo-simple-select-label"
-    id="demo-simple-select"
-    name="productId"
-    value={service}
-    label="Age"
-    onChange={handleChange}
-  >
-    { 
-      servicesArray.map((service) => {
-        return (
-          <MenuItem id={`${service.id}`} value={service.id}>{`${service.productName} ${service.price} kr`}</MenuItem>
-        )
-      })
-    }
-  </Select>
-</FormControl>
-
-<TextField
-    id="datetime-local"
-    label="Välj tid"
-    type="datetime-local"
-    name="bookedDate"
-    defaultValue={new Date()}
-    onChange={handleInputChange}
-    InputLabelProps={{
-      shrink: true,
-    }}
-  />
-  
-  <Button style={{marginRight: '225px', marginTop: '50px'}} onClick={onSubmit} variant="contained" color="success">Bekräfta</Button>
-</div>
-<div>
-    <h4>Service: {serviceObj?.productName}</h4>
-    <h4>Beskrivning: {serviceObj?.productDescription}</h4>
-    <h4>Pris: {serviceObj?.price} kr</h4>
-    <h4>Tid: {serviceObj?.timeToFinnish} min</h4>
-    <h4>Bokad tid: {initCheckout.bookedDate}</h4>
-    <h4>ID: {serviceObj?.id}</h4>
-</div>
+      <div style={{ display: "flex", flexDirection: "row"}}>
+        <div style={{ display: 'flex', flexDirection: 'column'}}>
+        <BookingStepper />
+    
+       <ServiceDropDown handleChange={handleChange}/>
+       <BookingDatePicker handleDateChange={handleDateChange}/>
+       </div>
+       { nextStepChosen ?
+       <div style={{display: 'flex', flexDirection: 'column'}}>
+       <UserInputs handleInputChange={handleInputChange}/>
+       <Button
+          onClick={onSubmit}
+          variant="contained"
+          color="success"
+          style={{width: '30%', marginLeft: '45px'}}
+        >
+          Bekräfta
+        </Button>
+        </div>
+        : null }
+      </div>
+      { dateChosen ? 
+      <UserFeedback initCheckout={initCheckout}/>
+      : null }
     </div>
-  )
-}
+  );
+};
 
 export default observer(TestBooking);
