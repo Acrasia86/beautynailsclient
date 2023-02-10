@@ -35,7 +35,7 @@ function App() {
     }
   }, [store, userStore])
 
-  // if(!store.appLoaded) return <LoadingComponent />
+  if(!store.appLoaded) return <LoadingBar />
 
   return (
     <div className="App">

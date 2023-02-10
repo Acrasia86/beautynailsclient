@@ -29,10 +29,10 @@ const Hero = () => {
   }));
 
   return (
-    <Box component="div" sx={{ minHeight: "80vh" }}>
-      <Container>
+    <Box component="div" sx={{ minHeight: "80vh", position: 'absolute', bottom: '50px', width: '50%' }}>
+      <Container style={{display: 'flex', justifyContent: 'center'}}>
         <CustomBox>
-          <Box component="div" sx={{ flex: "1" }}>
+          <Box component="div" sx={{ flex: "3" }}>
             <Typography
               variant="body2"
               sx={{
@@ -58,9 +58,6 @@ const Hero = () => {
           </Box>
 
           <Box  component="div"sx={{ flex: "1.25" }}>
-            <Canvas shadows>
-        <NailPolis />
-      </Canvas>
           </Box>
         </CustomBox>
       </Container>
