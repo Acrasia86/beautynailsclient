@@ -16,8 +16,8 @@ export default function NailPolis() {
             <Float>
                 <primitive
                     object={model.scene}
-                    scale={30}
-                    position={[3, -2, 1.2]} >
+                    scale={20}
+                    position={[3, -1, 1.2]} >
                 </primitive>   
             </Float>
            
