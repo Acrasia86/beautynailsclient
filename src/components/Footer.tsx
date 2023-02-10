@@ -1,33 +1,148 @@
-import React from 'react'
+import { styled, Typography } from "@mui/material";
+import { Box, Container } from "@mui/system";
+import InstagramIcon from '@mui/icons-material/Instagram';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import PinterestIcon from '@mui/icons-material/Pinterest';
+import PhoneIcon from '@mui/icons-material/Phone';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
 
-import { Box, Container, Grid, Typography } from "@mui/material";
+const Footer = () => {
+  const CustomContainer = styled(Container)(({ theme }) => ({
+    display: "flex",
+    justifyContent: "space-around",
+    gap: theme.spacing(5),
+    [theme.breakpoints.down("sm")]: {
+      flexDirection: "column",
+      textAlign: "center",
+    },
+  }));
 
-export const Footer=() => {
+  const IconBox = styled(Box)(({ theme }) => ({
+    display: "flex",
+    alignItems: "center",
+    gap: "1rem",
+    [theme.breakpoints.down("sm")]: {
+      justifyContent: "center",
+    },
+  }));
+
+  const FooterLink = styled("span")(({ theme }) => ({
+    fontSize: "16px",
+    color: "#7A7A7E",
+    fontWeight: "300",
+    cursor: "pointer",
+    "&:hover": {
+      color: "#000",
+    },
+  }));
+
   return (
-    <Box component='div'
-      sx={{
-        width: "100%",
-        height: "auto",
-        paddingTop: "1rem",
-        paddingBottom: "1rem",
-        backgroundColor:'#555a54',
-         color:'#f7f2ef'
-      }}
-    >
-      <Container maxWidth="lg">
-        <Grid container direction="column" alignItems="center">
-          <Grid item xs={12}>
-            <Typography color="#f7f2ef" variant="h5">
-              React Starter App
+    <Box component="div" sx={{ py: 10 }}>
+      <CustomContainer>
+        <CustomContainer>
+          <Box component="div">
+            <Typography
+              sx={{
+                fontSize: "20px",
+                color: "#1C1C1D",
+                fontWeight: "700",
+                mb: 2,
+              }}
+            >
+              Adress
             </Typography>
-          </Grid>
-          <Grid item xs={12}>
-            <Typography color="#f7f2ef" variant="subtitle1">
-              {`${new Date().getFullYear()} A & J`}
+            <Typography
+              sx={{
+                fontSize: "16px",
+                color: "#7A7A7E",
+                fontWeight: "500",
+                mb: 2,
+              }}
+            >
+             <LocationOnIcon />Järnvägsgatan 29
+              <br/>
+               25224 Helsingborg
             </Typography>
-          </Grid>
-        </Grid>
-      </Container>
+          </Box>
+
+          <Box component='div'>
+            <Typography
+              sx={{
+                fontSize: "20px",
+                color: "#1C1C1D",
+                fontWeight: "700",
+                mb: 2,
+              }}
+            >
+              Öppettider
+            </Typography>
+
+            <Typography
+              sx={{
+                fontSize: "16px",
+                color: "#7A7A7E",
+                fontWeight: "500",
+                mb: 2,
+              }}
+            >
+            Mån - Fre 10:00 - 19:00
+            <br/>
+            Lö 10:00 - 18:00
+            <br/>
+            </Typography>
+          </Box>
+ 
+
+          <Box component="div">
+            <Typography
+              sx={{
+                fontSize: "20px",
+                color: "#1C1C1D",
+                fontWeight: "700",
+                mb: 2,
+              }}
+            >
+              Kontakt
+            </Typography>
+
+            <FooterLink> <PhoneIcon/> 0704329119</FooterLink>
+            <br />
+            <FooterLink> <MailOutlineIcon/> beauty@nails.com</FooterLink>
+            <br />
+
+          </Box>
+
+          <Box component="div">
+            <Typography
+              sx={{
+                fontSize: "20px",
+                color: "#1C1C1D",
+                fontWeight: "700",
+                mb: 2,
+              }}
+            >
+             Följ oss
+            </Typography>
+
+            <Typography
+              sx={{
+                fontSize: "16px",
+                color: "#7A7A7E",
+                fontWeight: "500",
+                mb: 2,
+              }}
+            >
+              Vi finns på sociala medier
+            </Typography>
+            <IconBox>
+            <FacebookIcon style={{ cursor: "pointer" }}/>
+              <InstagramIcon style={{ cursor: "pointer" }}/>
+              <PinterestIcon style={{ cursor: "pointer" }}/>
+            </IconBox>
+          </Box>
+        </CustomContainer>
+      </CustomContainer>
     </Box>
   );
 };
