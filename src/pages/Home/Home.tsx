@@ -14,6 +14,7 @@ const Home=()=> {
   return (
     // background: '#253237' 
     <div style={{ width: '100%', height: '100%'}}>
+      <Navbar />
        <TestBooking/>
     {/* <Parallax ref={parallax} pages={3}>
       <ParallaxLayer offset={1} speed={1} style={{ backgroundColor: '#e1ddd2' }} />

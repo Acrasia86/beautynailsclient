@@ -22,7 +22,7 @@ const UserFeedback = ({ initCheckout }: Props) => {
   const { setNextStepChosen } = checkoutStore;
 
   return (
-    <div style={{position: 'absolute', bottom: '60px', left: '100px'}}>
+    <div style={{position: 'absolute', bottom: '10px', left: '100px'}}>
       <h4>Service: {serviceObj?.productName}</h4>
       <h4>Beskrivning: {serviceObj?.productDescription}</h4>
       <h4>Pris: {serviceObj?.price} kr</h4>

@@ -1,6 +1,8 @@
 import {
   Box,
   Button,
+  FormControl,
+  Input,
   SelectChangeEvent,
   Step,
   StepLabel,
@@ -23,6 +25,7 @@ const TestBooking = () => {
 
   const { servicesArray, services, serviceObj, setServiceChosen, service, setService, selectService } = serviceStore;
   const { createCheckout, dateChosen, setDateChosen, nextStepChosen, setConfirmChosen } = checkoutStore;
+
   const navigate = useNavigate();
 
   const initialCheckoutState = {
@@ -31,7 +34,7 @@ const TestBooking = () => {
     bookedDate: "",
     address: "",
     zipCode: "",
-    phoneNumber: "",
+    phoneNumber: ""
   };
 
   const [initCheckout, setInitCheckout] = useState(initialCheckoutState);
@@ -48,6 +51,7 @@ const TestBooking = () => {
   ) => {
     const { name, value } = e.target;
     setInitCheckout({ ...initCheckout, [name]: value });
+    console.log(`changed: ${name} value: ${value}`)
   };
 
   const handleDateChange = (
@@ -65,7 +69,6 @@ const TestBooking = () => {
   };
 
   useEffect(() => {
-
     selectService(initCheckout.productId);
     services();
   }, [servicesArray.length, serviceObj, service, initCheckout]);

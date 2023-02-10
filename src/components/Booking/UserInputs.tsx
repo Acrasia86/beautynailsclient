@@ -22,7 +22,7 @@ const UserInputs = ({handleInputChange} :Props) => {
           <FormControl>
             <Input
               id="my-input"
-              required={true}
+              required
               onChange={handleInputChange}
               name="address"
               aria-describedby="my-helper-text"
@@ -32,6 +32,7 @@ const UserInputs = ({handleInputChange} :Props) => {
           <FormControl>
             <Input
               id="my-input"
+              required
               onChange={handleInputChange}
               name="zipCode"
               aria-describedby="my-helper-text"
@@ -40,6 +41,7 @@ const UserInputs = ({handleInputChange} :Props) => {
           </FormControl>
           <FormControl>
             <Input
+              required
               id="my-input"
               onChange={handleInputChange}
               name="phoneNumber"
