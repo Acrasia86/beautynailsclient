@@ -1,9 +1,5 @@
 import { Box, Button, styled, Typography } from "@mui/material";
-import { Container } from "@mui/system";
-import { Canvas } from '@react-three/fiber'
-import React from "react";
-import NailPolis from "../components/NailPolish";
-import Navbar from '../components/Navbar'
+import { Container } from "@mui/system"
 
 const Hero = () => {
   const CustomBox = styled(Box)(({ theme }) => ({
@@ -30,7 +26,7 @@ const Hero = () => {
 
   return (
     <Box component="div" sx={{ minHeight: "80vh", position: 'absolute', bottom: '50px', width: '50%' }}>
-      <Container style={{display: 'flex', justifyContent: 'center'}}>
+      <Container style={{ display: 'flex', justifyContent: 'center' }}>
         <CustomBox>
           <Box component="div" sx={{ flex: "3" }}>
             <Typography
@@ -46,18 +42,15 @@ const Hero = () => {
               Vällkomen till Beauty Nails
             </Typography>
             <Title variant="h1">
-            Skönhet är en attityd
+              Skönhet är en attityd
             </Title>
             <Typography
               variant="body2"
               sx={{ fontSize: "18px", color: "#5A6473", my: 4 }}
             >
-             Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur accusamus dolorum fugiat delectus nulla dolore molestias quo similique, veniam eligendi?
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequatur accusamus dolorum fugiat delectus nulla dolore molestias quo similique, veniam eligendi?
             </Typography>
             <Button variant="contained">Boka tid</Button>
-          </Box>
-
-          <Box  component="div"sx={{ flex: "1.25" }}>
           </Box>
         </CustomBox>
       </Container>

@@ -38,7 +38,7 @@ const Footer = () => {
   }));
 
   return (
-    <Box component="div" sx={{ py: 10 }}>
+    <Box component="div" sx={{ py: 5 }}>
       <CustomContainer>
         <CustomContainer>
           <Box component="div">
