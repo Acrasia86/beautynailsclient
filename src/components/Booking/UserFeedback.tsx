@@ -26,9 +26,9 @@ const UserFeedback = ({ initCheckout }: Props) => {
       <Typography>Tjänsten: {serviceObj?.productName}</Typography>
       <Typography>Beskrivning: {serviceObj?.productDescription}</Typography>
       <Typography>Pris: {serviceObj?.price} kr</Typography>
-      <Typography>Tid: {serviceObj?.timeToFinnish} min</Typography>
-      <Typography>Vald tid: {moment(initCheckout.bookedDate).format("DD-MM-YYYY HH:mm")}</Typography>
-      <Button sx={{marginTop: '30px', background:'#c9e552', color:'#555a54' }} variant="contained" onClick={() => setNextStepChosen(true)}>
+      <Typography>Det tar: {serviceObj?.timeToFinnish} min</Typography>
+      <Typography>Tid: {moment(initCheckout.bookedDate).format("DD-MM-YYYY HH:mm")}</Typography>
+      <Button sx={{marginTop: '30px', background:'#c9e552', color:'#555a54' }} onClick={() => setNextStepChosen(true)}>
         Nästa steg
       </Button>
     </Box>
