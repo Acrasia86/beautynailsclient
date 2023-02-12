@@ -17,7 +17,7 @@ const BookingStepper = () => {
       ];
 
   return (
-    <Box component="div" sx={{ width: '235%', marginTop: '50px' }}>
+    <Box component="div" sx={{ width: '235%', marginTop: '50px'}}>
     <Stepper activeStep={serviceChosen && dateChosen && nextStepChosen && confirmChosen ? 4 : 3
          && serviceChosen && dateChosen && nextStepChosen ? 3 : 2 
          && serviceChosen && dateChosen ? 2: 1 
