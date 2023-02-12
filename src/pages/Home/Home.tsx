@@ -12,11 +12,11 @@ const Home = () => {
   return (<>
     <Navbar />
     <Canvas shadows>
-      {/* <NailPolis /> */}
+      <NailPolis />
     </Canvas>
     <Hero />
     <TestBooking />
-    {/* <PriceList /> */}
+     <PriceList />
     <Footer />
   </>
   )

@@ -1,98 +1,62 @@
 import * as React from 'react';
-import { useState, useEffect } from 'react';
+import Box from '@mui/material/Box';
+import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
-import Table from '@mui/material/Table';
-import TableBody from '@mui/material/TableBody';
-import TableCell from '@mui/material/TableCell';
-import TableContainer from '@mui/material/TableContainer';
-import TableHead from '@mui/material/TableHead';
-import TableRow from '@mui/material/TableRow';
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider"
+import Masonry from '@mui/lab/Masonry';
+import { Typography } from '@mui/material';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Button from '@mui/material/Button';
 import serviceStore from '../stores/serviceStore';
-import { observer } from 'mobx-react-lite';
 
+const heights = [150];
+<Box
+  component="span"
+  sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}
+>
+</Box>
 
-function AdminServicesList() {
-  const [page, setPage] = useState(0);
-  const [rowsPerPage, setRowsPerPage] = useState(1000);
+const Item = styled(Paper)(({ theme }) => ({
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  ...theme.typography.body2,
+  padding: theme.spacing(0.5),
+  textAlign: 'center',
+  color: theme.palette.text.secondary,
+}));
 
+export default function PriceList() {
+  const { servicesArray, services } = serviceStore;
 
-  const { servicesArray, services} = serviceStore;
-
-  useEffect(() => {
+  React.useEffect(() => {
     services();
   }, [servicesArray.length]);
-
-  console.log(JSON.stringify(servicesArray));
-
+  
   return (
-    <Paper elevation={24}  sx={{ width: '100%', overflow: 'hidden', background:'#e1ddd2' }}>
-      <Typography
-        gutterBottom
-        variant="h4"
-        align='center'
-        component="div"
-        sx={{ padding: "20px" }}
-      >
-        Behandlingar
-      </Typography>
-      <TableContainer sx={{ minHeight: 440, mt:'25px' }}>
-        <Table >
-          <TableHead>
-            <TableRow>
-              <TableCell
-                align='center'
-                style={{ minWidth: '100px', }}>
-                Tjänsten
-              </TableCell>
-              <TableCell
-                align='center'
-                style={{ minWidth: '100px' }}
-              >
-                Beskrivning
-              </TableCell>
-              <TableCell
-                align='center'
-                style={{ minWidth: '100px' }}
-              >
-                Tid (min)
-              </TableCell>
-              <TableCell
-                align='center'
-                style={{ minWidth: '100px' }}
-              >
-                Pris (kr)
-              </TableCell>
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {servicesArray
-              .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((servicesArray) => {
-                return (
-                  <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell align='center'>
-                      {servicesArray.productName}
-                    </TableCell>
-                    <TableCell key={servicesArray.id} align='center'>
-                      {servicesArray.productDescription}
-                    </TableCell>
-                    <TableCell key={servicesArray.id} align='center'>
-                      {servicesArray.timeToFinnish}
-                    </TableCell>
-                    <TableCell key={servicesArray.id} align='center'>
-                      {servicesArray.price}
-                    </TableCell>
-                    <TableCell key={servicesArray.id} align='center'>
-                    </TableCell>
-                  </TableRow>
-                );
-              })}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </Paper>
+    <>
+      <Typography gutterBottom variant="h3" align='center' marginBottom={6}>Erbjudande</Typography>
+      <Box component="div" sx={{ width: '90%', ml:'110px', mb:'80px' }}>
+        <Masonry columns={4} spacing={2}>
+          {servicesArray.map((servicesArray) => (
+            <Card sx={{ minWidth: 275 }}>
+              <CardContent>
+                <Typography sx={{ fontSize: 14 }} gutterBottom>
+                {servicesArray.timeToFinnish} min
+                </Typography>
+                <Typography variant="h5" component="div">
+                  {servicesArray.productName}
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                {servicesArray.price} kr
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button size="small">Läs mer</Button>
+              </CardActions>
+            </Card>
+          ))}
+        </Masonry>
+      </Box>
+    </>
   );
 }
-export default observer(AdminServicesList);
