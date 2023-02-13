@@ -20,22 +20,19 @@ declare global {
   }
 }
 
-
-
-
 function App() {
-  const {token} = store;
-  const {getUser} = userStore;
-  
+  const { token } = store;
+  const { getUser } = userStore;
+
   useEffect(() => {
-    if(token) {
+    if (token) {
       getUser().finally(() => store.setAppLoaded());
     } else {
       store.setAppLoaded();
     }
   }, [store, userStore])
 
-  if(!store.appLoaded) return <LoadingBar />
+  if (!store.appLoaded) return <LoadingBar />
 
   return (
     <div className="App">

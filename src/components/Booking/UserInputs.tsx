@@ -1,4 +1,4 @@
-import { FormControl, FormHelperText, Input } from '@mui/material';
+import { FormControl, FormHelperText, Input,Box,Typography } from '@mui/material';
 import { observer } from 'mobx-react';
 import React, { ChangeEvent, useEffect } from 'react'
 import userStore from '../../stores/userStore';
@@ -16,9 +16,9 @@ const UserInputs = ({handleInputChange} :Props) => {
     }, [])
 
   return (
-    <div>
-         <div style={{display: 'flex', flexDirection: 'column', width: '500px', marginTop: '135px', marginLeft: '50px', marginBottom: '30px'}}>
-          <h3 style={{marginTop: '15px'}}>{user?.userName}</h3>
+    <Box component="div">
+         <Box component="div" sx={{display: 'flex', flexDirection: 'column', width: '500px', marginTop: '135px', marginLeft: '50px', marginBottom: '30px'}}>
+          <Typography sx={{mb: '15px'}}>{user?.userName}</Typography>
           <FormControl>
             <Input
               id="my-input"
@@ -49,8 +49,8 @@ const UserInputs = ({handleInputChange} :Props) => {
             />
             <FormHelperText id="my-helper-text">Telefonnummer</FormHelperText>
           </FormControl>
-        </div>
-    </div>
+        </Box>
+    </Box>
   )
 }
 

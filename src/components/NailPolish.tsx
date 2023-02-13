@@ -20,7 +20,6 @@ export default function NailPolis() {
                     position={[3, -1, 1.2]} >
                 </primitive>   
             </Float>
-           
         </PresentationControls>
         <ContactShadows position-y={- 1.4} opacity={0.5} blur={2.4} />
 
