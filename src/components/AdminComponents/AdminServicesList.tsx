@@ -54,6 +54,7 @@ function AdminServicesList() {
       cancelButtonColor: "#d33",
       confirmButtonText: "Yes, delete it!",
     });
+    removeService(id);
   };
 
   return (
@@ -140,7 +141,7 @@ function AdminServicesList() {
                                 cursor: "pointer",
                               }}
                               onClick={() => {
-                                removeService(servicesArray.id)
+                                deleteService(servicesArray.id)
                               }}
                             />
                           </Stack>
