@@ -22,19 +22,18 @@ import { CheckoutService } from '../../interfaces/CheckoutService';
 import { observer } from 'mobx-react';
 import TotalIncome from './TotalIncome';
 import NumberOfBookedCustomers from './NumberOfBookedCustomers';
+import Birthdays from './Birthdays';
 
 const Dashboard = () => {
 
-  const {getAllUsers, users, birthday, birthdays, user} = userStore;
+  const {getAllUsers, users} = userStore;
   const {checkOutServices, checkoutService} = checkoutStore;
   const {servicesArray} = serviceStore;
 
   useEffect(() => {
-    birthday();
     getAllUsers();
     checkOutServices();
-    console.log(JSON.stringify(birthdays));
-  }, [users.length, checkoutService.length, servicesArray.length, birthdays.length])
+  }, [users.length, checkoutService.length, servicesArray.length])
 
   return (<>
 
@@ -47,21 +46,7 @@ const Dashboard = () => {
             <Grid item xs={8}>
               <Stack spacing={2} direction='row'>
                <TotalIncome />
-                <Card sx={{ minWidth: 49 + '%', height: 150 }} className='income2'>
-                  <CardContent>
-                    <div>
-                      <SavingsIcon />
-                    </div>
-                    <Typography gutterBottom variant="h5" component="div">
-                     {birthdays.map((bday) => (
-                      bday.userName
-                     ))}
-                    </Typography>
-                    <Typography gutterBottom variant="body2" component="div" sx={{ color: '#555a54' }}>
-                      Kund som fyller år
-                    </Typography>
-                  </CardContent>
-                </Card>
+                <Birthdays />
               </Stack>
             </Grid>
             <Grid item xs={4}>
