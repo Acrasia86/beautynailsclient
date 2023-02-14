@@ -62,3 +62,7 @@ canvas {
 .MuiCalendarPicker-root {
     background-color: rgba(0, 0, 0, 0) !important;
 }
+
+.addNewService:hover {
+    cursor: pointer;
+}
