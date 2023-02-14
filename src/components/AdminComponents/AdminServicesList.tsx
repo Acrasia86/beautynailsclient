@@ -15,12 +15,16 @@ import serviceStore from '../../stores/serviceStore';
 import EditIcon from '@mui/icons-material/Edit';
 import Stack from '@mui/material/Stack'
 import { observer } from 'mobx-react-lite';
+import AddIcon from '@mui/icons-material/Add';
+import modalStore from '../../stores/modalStore';
+import AddService from '../../pages/AdminPage/AddService';
 
 
 function AdminServicesList() {
   const [page, setPage] = useState(0);
   const [rowsPerPage, setRowsPerPage] = useState(10);
   const [rows, setRows] = useState([]);
+  const {openModal} = modalStore;
 
 
   const handleChangePage = (event: unknown, newPage: number) => {
@@ -48,7 +52,9 @@ function AdminServicesList() {
         sx={{ padding: "20px" }}
       >
         Tjänster
+        <AddIcon className='addNewService' onClick={() => openModal(<AddService />)} style={{marginLeft: '760px'}}/>
       </Typography>
+
       <Divider />
       <TableContainer sx={{ maxHeight: 440 }}>
         <Table stickyHeader aria-label="sticky table">
