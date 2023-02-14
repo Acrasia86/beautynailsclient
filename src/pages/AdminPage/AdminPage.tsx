@@ -22,8 +22,6 @@ const AdminPage = () => {
         }).then(res => res.json())
           .then(data => setRole(data));
       }
-    
-      console.log(JSON.stringify(role));
   }, [role.length])
   return (
 

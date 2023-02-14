@@ -1,5 +1,7 @@
 import { makeAutoObservable, runInAction } from "mobx";
+import Swal from "sweetalert2";
 import agent from "../api/agent";
+import { CheckoutService } from "../interfaces/CheckoutService";
 import { Service } from "../interfaces/Service";
 
 class serviceStore {
@@ -30,11 +32,24 @@ class serviceStore {
 
     removeService = async (id: number) => {
         try {
-            await agent.products.delete(id);
+            let swalDelete = Swal.fire({
+                title: "Are you sure?",
+                text: "You won't be able to revert this!",
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#3085d6",
+                cancelButtonColor: "#d33",
+                confirmButtonText: "Yes, delete it!",
+              });
+              if((await swalDelete).isConfirmed) {
+                await agent.products.delete(id);
+              }
+     
             if(!id) {
                 return new Error('No service id found')
             }
             runInAction(() => {
+               
                 this.servicesArray = [...this.servicesArray.filter(x => x.id !== id)]
             })
         } catch(err) {

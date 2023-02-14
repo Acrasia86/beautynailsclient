@@ -10,14 +10,10 @@ import TablePagination from '@mui/material/TablePagination';
 import TableRow from '@mui/material/TableRow';
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider"
-import IconButton from '@mui/material/IconButton';
 import DeleteIcon from "@mui/icons-material/Delete";
 import serviceStore from '../../stores/serviceStore';
 import EditIcon from '@mui/icons-material/Edit';
-import Swal from "sweetalert2";
 import Stack from '@mui/material/Stack'
-import TextField from "@mui/material/TextField";
-import Autocomplete from "@mui/material/Autocomplete";
 import { observer } from 'mobx-react-lite';
 
 
@@ -40,22 +36,8 @@ function AdminServicesList() {
 
   useEffect(() => {
     services();
+
   }, [servicesArray.length]);
-
-  // console.log(JSON.stringify(servicesArray));
-
-  const deleteService = (id: any) => {
-    Swal.fire({
-      title: "Are you sure?",
-      text: "You won't be able to revert this!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#3085d6",
-      cancelButtonColor: "#d33",
-      confirmButtonText: "Yes, delete it!",
-    });
-    removeService(id);
-  };
 
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
@@ -141,7 +123,7 @@ function AdminServicesList() {
                                 cursor: "pointer",
                               }}
                               onClick={() => {
-                                deleteService(servicesArray.id)
+                                removeService(servicesArray.id)
                               }}
                             />
                           </Stack>
