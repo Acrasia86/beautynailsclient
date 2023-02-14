@@ -37,6 +37,13 @@ const Footer = () => {
     },
   }));
 
+  const latitude = '56.04332083738107';
+  const longitude = '12.696538086506193';
+
+  const showInMapClicked = () => {
+    window.open("https://maps.google.com?q="+latitude+","+longitude );
+  }
+
   return (
     <Box component="div" sx={{ py: 5 }}>
       <CustomContainer>
@@ -60,7 +67,7 @@ const Footer = () => {
                 mb: 2,
               }}
             >
-             <LocationOnIcon />Järnvägsgatan 29
+             <LocationOnIcon style={{cursor: 'pointer'}} onClick={showInMapClicked} />Järnvägsgatan 29
               <br/>
                25224 Helsingborg
             </Typography>

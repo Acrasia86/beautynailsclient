@@ -11,6 +11,7 @@ const Birthdays = () => {
     
   useEffect(() => {
     birthday();
+    
   }, [birthdays.length])
 
   return (
