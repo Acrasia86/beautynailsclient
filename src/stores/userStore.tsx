@@ -14,6 +14,7 @@ class userStore {
     password: string = '';
     role: [] = [];
     users: User[] = [];
+    birthdays: User[] = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -84,6 +85,20 @@ getAllUsers = async () => {
         console.log(error);
     }
    }
+
+   birthday = async () => {
+    try {
+        const bday = await agent.account.birthday();
+
+        runInAction(() => {
+
+            this.birthdays = [...bday];
+        })
+    } catch(err) {
+        throw new Error("Something went wrong loading birthdays");
+    }
+}
+
 }
 
 export default new userStore();

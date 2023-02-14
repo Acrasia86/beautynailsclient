@@ -25,14 +25,16 @@ import NumberOfBookedCustomers from './NumberOfBookedCustomers';
 
 const Dashboard = () => {
 
-  const {getAllUsers, users} = userStore;
+  const {getAllUsers, users, birthday, birthdays, user} = userStore;
   const {checkOutServices, checkoutService} = checkoutStore;
   const {servicesArray} = serviceStore;
 
   useEffect(() => {
+    birthday();
     getAllUsers();
     checkOutServices();
-  }, [users.length, checkoutService.length, servicesArray.length])
+    console.log(JSON.stringify(birthdays));
+  }, [users.length, checkoutService.length, servicesArray.length, birthdays.length])
 
   return (<>
 
@@ -51,10 +53,12 @@ const Dashboard = () => {
                       <SavingsIcon />
                     </div>
                     <Typography gutterBottom variant="h5" component="div">
-                      <CountUp start={0} end={20000} duration={1.1}></CountUp> kr
+                     {birthdays.map((bday) => (
+                      bday.userName
+                     ))}
                     </Typography>
                     <Typography gutterBottom variant="body2" component="div" sx={{ color: '#555a54' }}>
-                      Månadsinkomst
+                      Kund som fyller år
                     </Typography>
                   </CardContent>
                 </Card>

@@ -3,6 +3,7 @@ export interface User {
     displayName: string;
     token: string;
     image?: string;
+    birthday?: string;
 }
 
 export interface UserFormValues {
@@ -10,7 +11,7 @@ export interface UserFormValues {
     password: string;
     displayName?: string;
     userName?: string;
-    birthDay?: string;
+
 }
 
 export interface Role {
