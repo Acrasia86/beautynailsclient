@@ -9,6 +9,7 @@ import Button from '@mui/material/Button';
 import serviceStore from '../stores/serviceStore';
 import Modal from '@mui/material/Modal';
 import Chip from '@mui/material/Chip';
+import { observer } from 'mobx-react-lite';
 
 <Box
   component="span"
@@ -27,7 +28,7 @@ const style = {
   p: 4,
 };
 
-export default function PriceList() {
+  function PriceList() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
@@ -44,6 +45,7 @@ export default function PriceList() {
       <Divider>Erbjudande</Divider></Typography>
       <Box component="div" sx={{ width: '90%', ml:'110px', mb:'80px' }}>
         <Masonry columns={4} spacing={2}>
+          
           {servicesArray.map((servicesArray) => (
             <Card sx={{ minWidth: 275, background:'#e1ddd2' }}>
             <CardContent>
@@ -86,3 +88,5 @@ export default function PriceList() {
     </>
   );
 }
+
+export default observer(PriceList);
