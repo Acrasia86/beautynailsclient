@@ -40,7 +40,8 @@ const account = {
     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
     register: (user: UserFormValues) => requests.post<User>('/account/register', user),
     role: () => requests.get<Role>('/account/getrole'),
-    getAllUsers: () => requests.get<User[]>('/account/getAllUsers')
+    getAllUsers: () => requests.get<User[]>('/account/getAllUsers'),
+    birthday: () => requests.get<User[]>('/account/birthday')
 }
 
 

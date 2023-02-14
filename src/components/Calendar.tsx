@@ -6,6 +6,14 @@ import {
     Toolbar,
     ViewSwitcher,
 } from '@devexpress/dx-react-scheduler-material-ui';
+import checkoutStore from '../stores/checkoutStore';
+import { useEffect } from 'react';
+import { Checkout } from '../interfaces/Checkout';
+
+
+const Calendar = () => {
+
+    const {allCheckouts, checkouts} = checkoutStore;
 
 const appointments: Array<AppointmentModel> = [{
     startDate: '2023-01-30T11:00',
@@ -27,7 +35,11 @@ const resources = [{
     ],
 }];
 
-const Calendar = () => {
+useEffect(() => {
+    allCheckouts();
+}, [checkouts.length])
+
+
     const [currentDate, setCurrentDate] = React.useState<SchedulerDateTime>('2023-01-30');
 
     return (
