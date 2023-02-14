@@ -13,6 +13,7 @@ class userStore {
     email: string = '';
     password: string = '';
     role: [] = [];
+    users: User[] = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -56,6 +57,23 @@ class userStore {
 
    setRole = (role: []) => {
     this.role = [...role];
+}
+
+
+getAllUsers = async () => {
+    try {
+        const users = await agent.account.getAllUsers();
+        runInAction(() => {
+            if(users === null) {
+                return null;
+            }
+            this.users = [...users];
+        })
+    } catch(error) {
+        throw error;
+    }
+
+
 }
 
    getUser = async () => {

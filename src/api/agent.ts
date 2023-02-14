@@ -1,5 +1,6 @@
 import axios, { AxiosError, AxiosResponse } from 'axios';
 import { Checkout } from '../interfaces/Checkout';
+import { CheckoutService } from '../interfaces/CheckoutService';
 import { Service } from '../interfaces/Service';
 import { Role, User, UserFormValues } from '../interfaces/User';
 import store from '../stores/store';
@@ -30,13 +31,16 @@ const products = {
 const checkout = {
     details: (id: number) => requests.get<Checkout>(`/checkout/${id}`),
     create: (checkout: Checkout) => requests.post<Checkout>('/checkout', checkout),
+    checkoutService: () => requests.get<any[]>('/checkout/checkoutService'),
+    list: () => requests.get<Checkout[]>('/checkout/getAllCheckouts')
 }
 
 const account = {
     current: () => requests.get<User>('/account'),
     login: (user: UserFormValues) => requests.post<User>('/account/login', user),
     register: (user: UserFormValues) => requests.post<User>('/account/register', user),
-    role: () => requests.get<Role>('/account/getrole')
+    role: () => requests.get<Role>('/account/getrole'),
+    getAllUsers: () => requests.get<User[]>('/account/getAllUsers')
 }
 
 

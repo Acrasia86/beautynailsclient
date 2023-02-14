@@ -2,6 +2,7 @@ import { makeAutoObservable, runInAction } from "mobx";
 import { MutableRefObject, useRef } from "react";
 import agent from "../api/agent";
 import { Checkout } from "../interfaces/Checkout";
+import { CheckoutService } from "../interfaces/CheckoutService";
 
 class checkoutStore {
 
@@ -9,6 +10,8 @@ class checkoutStore {
     dateChosen: boolean = false;
     nextStepChosen: boolean = false;
     confirmChosen: boolean = false;
+    checkoutService: any[] = [];
+    checkouts: Checkout[] = [];
 
     constructor() {
         makeAutoObservable(this);
@@ -35,6 +38,36 @@ class checkoutStore {
             throw new Error("Something went wrong loading checkout details");
 
         }
+}
+
+checkOutServices = async () => {
+    try {
+        const checkout = await agent.checkout.checkoutService();
+
+        runInAction(() => {
+            if(checkout === null) {
+                return null;
+            }
+            this.checkoutService = [...checkout];
+        })
+    } catch(err) {
+        throw new Error("Something went wrong loading checkout services");
+    }
+}
+
+allCheckouts = async () => {
+    try {
+        const checkouts = await agent.checkout.list();
+
+        runInAction(() => {
+            if(checkouts === null) {
+                return null;
+            }
+            this.checkouts = [...checkouts];
+        })
+    } catch(err) {
+        throw new Error("Something went wrong loading all checkouts");
+    }
 }
 
     setDateChosen = (dateChosen: boolean) => {
