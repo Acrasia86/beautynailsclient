@@ -19,11 +19,13 @@ const Birthdays = () => {
       <div>
         <SavingsIcon />
       </div>
+      <div>
       <Typography gutterBottom variant="h5" component="div">
        {birthdays.map((bday) => (
-        bday.userName
+        <div>{bday.userName}</div>
        ))}
       </Typography>
+      </div>
       <Typography gutterBottom variant="body2" component="div" sx={{ color: '#555a54' }}>
         Kunder som fyller år
       </Typography>
