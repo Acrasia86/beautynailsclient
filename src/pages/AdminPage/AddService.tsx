@@ -35,7 +35,6 @@ const AddService = () => {
   };
 
   useEffect(() => {
-    console.log(roundedInt);
     services();
   }, [servicesArray.length])
   

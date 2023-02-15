@@ -36,13 +36,14 @@ function AdminServicesList() {
     setPage(0);
   };
 
-  const { servicesArray, services, removeService, updateService } = serviceStore;
+  const { servicesArray, services, removeService } = serviceStore;
 
   useEffect(() => {
     services();
 
   }, [servicesArray.length]);
 
+  // bug
   return (
     <Paper sx={{ width: '100%', overflow: 'hidden' }}>
       <Typography
@@ -94,47 +95,48 @@ function AdminServicesList() {
           <TableBody>
             {servicesArray
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((servicesArray) => {
+              .map((service) => {
                 return (
                   <TableRow hover role="checkbox" tabIndex={-1}>
-                    <TableCell key={servicesArray.id} align='left'>
-                      {servicesArray.productName}
-                    </TableCell>
-                    <TableCell key={servicesArray.id} align='left'>
-                      {servicesArray.productDescription}
-                    </TableCell>
-                    <TableCell key={servicesArray.id} align='left'>
-                      {servicesArray.timeToFinnish}
-                    </TableCell>
-                    <TableCell key={servicesArray.id} align='left'>
-                      {servicesArray.price}
-                    </TableCell>
-                    <TableCell key={servicesArray.id} align='left'>
-                    <Stack spacing={2} direction="row">
-                            <EditIcon
-                              style={{
-                                fontSize: "20px",
-                                color:'#c9e552',
-                                cursor: "pointer",
-                              }}
-                              className="cursor-pointer"
-                              onClick={() => {
-                                // updateService()
-                              }}
-                            />
-                            <DeleteIcon
-                              style={{
-                                fontSize: "20px",
-                                color: "#FF7276",
-                                cursor: "pointer",
-                              }}
-                              onClick={() => {
-                                removeService(servicesArray.id)
-                              }}
-                            />
-                          </Stack>
-                    </TableCell>
-                  </TableRow>
+                  <TableCell align='left'>
+                    {service.productName}
+                  </TableCell>
+                  <TableCell align='left'>
+                    {service.productDescription}
+                  </TableCell>
+                  <TableCell align='left'>
+                    {service.timeToFinnish}
+                  </TableCell>
+                  <TableCell align='left'>
+                    {service.price}
+                  </TableCell>
+                  <TableCell align='left'>
+                  <Stack spacing={2} direction="row">
+                          <EditIcon
+                            style={{
+                              fontSize: "20px",
+                              color:'#c9e552',
+                              cursor: "pointer",
+                            }}
+                            className="cursor-pointer"
+                            onClick={() => {
+                              // updateService()
+                            }}
+                          />
+                          <DeleteIcon
+                            style={{
+                              fontSize: "20px",
+                              color: "#FF7276",
+                              cursor: "pointer",
+                            }}
+                            onClick={() => {
+                              removeService(service.id)
+                            }}
+                          />
+                        </Stack>
+                  </TableCell>
+                </TableRow>
+                
                 );
               })}
           </TableBody>
