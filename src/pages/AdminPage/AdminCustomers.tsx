@@ -1,4 +1,5 @@
 import Box from '@mui/material/Box';
+import { observer } from 'mobx-react';
 import SideNav from '../../components/SideNav';
 import AllUsers from './AllUsers';
 
@@ -12,4 +13,4 @@ const AdminCustomers = () => {
     </Box> );
 }
  
-export default  AdminCustomers;
+export default  observer(AdminCustomers);

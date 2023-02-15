@@ -1,3 +1,4 @@
+import { throws } from "assert";
 import { makeAutoObservable, runInAction } from "mobx";
 import Swal from "sweetalert2";
 import agent from "../api/agent";
@@ -33,7 +34,8 @@ class serviceStore {
     createService = async (service: Service) => {
         try {
              await agent.products.create(service);
-
+             this.services();
+            
         } catch (error) {
             throw new Error("Something went wrong creating a new service");
         }
@@ -72,7 +74,6 @@ class serviceStore {
                 return new Error('No service id found')
             }
             runInAction(() => {
-               
                 this.servicesArray = [...this.servicesArray.filter(x => x.id !== id)]
             })
         } catch(err) {
