@@ -54,7 +54,7 @@ const style = {
   return (
     <>
       <Typography gutterBottom variant="h3" align='center' marginBottom={6}> 
-      <Divider>Erbjudande</Divider></Typography>
+      <Divider>Prislista</Divider></Typography>
       <Box component="div" sx={{ width: '90%', ml:'110px', mb:'80px' }}>
         <Masonry columns={4} spacing={2}>
           
@@ -81,21 +81,6 @@ const style = {
       </Box>
   
       <div>
-      {/* <Modal
-        open={() => testing}
-        onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
-      >
-        <Box component="div" sx={style}>
-          <Typography id="modal-modal-title" variant="h6" component="h2">
-          productName
-          </Typography>
-          <Typography id="modal-modal-description" sx={{ mt: 2 }}>
-          productDescription
-          </Typography>
-        </Box>
-      </Modal> */}
     </div>
     </>
   );
