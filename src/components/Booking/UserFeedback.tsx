@@ -9,7 +9,7 @@ import moment from "moment";
 interface Props {
   initCheckout: {
     id: string;
-    productId: number;
+    productId: string;
     bookedDate: string;
     address: string;
     zipCode: string;
@@ -22,7 +22,7 @@ const UserFeedback = ({ initCheckout }: Props) => {
   const { setNextStepChosen } = checkoutStore;
 
   return (
-    <Box component="div" sx={{ bottom: '10px', left: '100px'}}>
+    <Box component="div" sx={{marginLeft: '100px', marginTop: '30px'}}>
       <Typography>Tjänsten: {serviceObj?.productName}</Typography>
       <Typography>Beskrivning: {serviceObj?.productDescription}</Typography>
       <Typography>Pris: {serviceObj?.price} kr</Typography>

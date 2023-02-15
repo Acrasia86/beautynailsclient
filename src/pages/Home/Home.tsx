@@ -17,7 +17,7 @@ const Home = () => {
     <Hero />
     <TestBooking />
      <PriceList />
-    <Footer />
+     <Footer />
   </>
   )
 }

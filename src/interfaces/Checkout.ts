@@ -2,7 +2,7 @@ import { Service } from "./Service";
 
 export interface Checkout {
     id?: string;
-    productId?: number;
+    productId?: string;
     bookedDate?: string;
     address: string;
     zipCode: string;

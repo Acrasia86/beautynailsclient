@@ -30,7 +30,7 @@ const TestBooking = () => {
 
   const initialCheckoutState = {
     id: uuidv4(),
-    productId: 0,
+    productId: uuidv4(),
     bookedDate: "",
     address: "",
     zipCode: "",
@@ -51,7 +51,6 @@ const TestBooking = () => {
   ) => {
     const { name, value } = e.target;
     setInitCheckout({ ...initCheckout, [name]: value });
-    console.log(`changed: ${name} value: ${value}`)
   };
 
   const handleDateChange = (
