@@ -22,7 +22,7 @@ import RegisterForm from '../features/users/RegisterForm';
 
 
 function Navbar() {
-  const pages = ['Hem', 'Prislista', 'Kontakta oss'];
+  const pages = ['Prislista', 'Kontakt'];
 const settings = ['Logga in','Skapa ett konto','Admin'];
 const {isLoggedIn, user, logout, role} = userStore;
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -132,7 +132,7 @@ const {isLoggedIn, user, logout, role} = userStore;
                 {page}
               </Button>
             ))}
-            {isLoggedIn ? (<MenuItem sx={{marginLeft: '430px'}}><Typography textAlign='center'>{user?.displayName}</Typography></MenuItem>)
+            {isLoggedIn ? (<MenuItem sx={{marginLeft: '500px'}}><Typography textAlign='center'>{user?.displayName}</Typography></MenuItem>)
             : (null)}       
               
           </Box>

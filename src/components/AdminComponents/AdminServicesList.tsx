@@ -40,7 +40,6 @@ function AdminServicesList() {
 
   useEffect(() => {
     services();
-
   }, [servicesArray.length]);
 
   // bug
@@ -97,7 +96,7 @@ function AdminServicesList() {
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
               .map((service) => {
                 return (
-                  <TableRow hover role="checkbox" tabIndex={-1}>
+                  <TableRow key={service.id} hover role="checkbox" tabIndex={-1}>
                   <TableCell align='left'>
                     {service.productName}
                   </TableCell>
@@ -136,7 +135,6 @@ function AdminServicesList() {
                         </Stack>
                   </TableCell>
                 </TableRow>
-                
                 );
               })}
           </TableBody>
