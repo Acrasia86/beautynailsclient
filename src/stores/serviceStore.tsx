@@ -30,7 +30,30 @@ class serviceStore {
         }
     }
 
-    removeService = async (id: number) => {
+    createService = async (service: Service) => {
+        try {
+             await agent.products.create(service);
+
+        } catch (error) {
+            throw new Error("Something went wrong creating a new service");
+        }
+    }
+
+    getServiceById = async (id: string) => {
+        
+        try {
+          let serviceById = await agent.products.details(id);
+            runInAction(() => {
+                this.serviceObj = serviceById;
+            })
+            return serviceById;
+        } catch(err) {
+            throw new Error("Something went wrong loading service by id");
+
+        }
+}
+
+    removeService = async (id: string) => {
         try {
             let swalDelete = Swal.fire({
                 title: "Are you sure?",
@@ -70,7 +93,7 @@ class serviceStore {
         }
     }
 
-    selectService = (id: number) => {
+    selectService = (id: string) => {
         this.serviceObj = this.servicesArray.find(x => x.id === id);
     }
 

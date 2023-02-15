@@ -11,6 +11,7 @@ import ModalContainer from './common/ModalContainer';
 import { Canvas, extend, useThree, ReactThreeFiber } from '@react-three/fiber';
 import { OrbitControls } from 'three-orbitcontrols-ts';
 import LoadingBar from './components/LoadingBar';
+import Footer from './components/Footer';
 
 declare global {
   namespace JSX {

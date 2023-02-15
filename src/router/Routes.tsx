@@ -8,6 +8,7 @@ import AdminCustomers from "../pages/AdminPage/AdminCustomers";
 import AdminSetting from "../pages/AdminPage/AdminSetting";
 import AdminPage from "../pages/AdminPage/AdminPage";
 import ThankYou from "../components/Booking/ThankYou";
+import ModalContainer from "../common/ModalContainer";
 
 export const routes: RouteObject[] = [
     {

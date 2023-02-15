@@ -1,8 +1,7 @@
 export interface Service {
-    id: number;
+    id: string;
     productName: string;
     productDescription: string;
     timeToFinnish: string;
-    imageUrl: string;
     price: number;
 }
