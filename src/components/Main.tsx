@@ -19,6 +19,7 @@ import userStore from "../stores/userStore";
 import { Link } from "react-router-dom";
 import Face3 from "@mui/icons-material/Face3";
 import { useEffect, useRef } from "react";
+import PriceList from "../pages/PriceList";
 
 
 function Main() {
@@ -53,11 +54,11 @@ function Main() {
   const foo = false; //loading method
   const ref = useRef<HTMLInputElement>(null);
 
-  const scrollToBottom = () => {
+  const scrollToBottom = (count: number) => {
     if (ref.current) {
       window.scrollTo({
         behavior: "smooth",
-        top: ref.current.scrollTop += 700
+        top: ref.current.scrollTop += count
       });
     }
   }
@@ -98,8 +99,9 @@ function Main() {
               p={0}
               my={0}
               mx="auto"
-              sx={{ listStyle: "none" }}
+              sx={{ listStyle: "none"}}
             >
+              
               <Box component="li">
                 <Typography
                   component={Link1}
@@ -108,20 +110,7 @@ function Main() {
                   color="#555a54"
                   fontWeight="regular"
                   p={1}
-                  onClick={(e) => e.preventDefault()}
-                >
-                  Hem
-                </Typography>
-              </Box>
-              <Box component="li">
-                <Typography
-                  component={Link1}
-                  href="#"
-                  variant="button"
-                  color="#555a54"
-                  fontWeight="regular"
-                  p={1}
-                  onClick={(e) => e.preventDefault()}
+                  onClick={() => scrollToBottom(950)}
                 >
                   Erbjudande
                 </Typography>
@@ -134,7 +123,7 @@ function Main() {
                   color="#555a54"
                   fontWeight="regular"
                   p={1}
-                  onClick={(e) => e.preventDefault()}
+                  onClick={() => scrollToBottom(1800)}
                 >
                   Kontakt
                 </Typography>
@@ -358,7 +347,7 @@ function Main() {
               Medicinska fotvårdare och Auktoriserade Hudterapeuter
             </Typography>
             <Stack direction="row" spacing={1} mt={3}>
-              <Button onClick={scrollToBottom} variant="contained" color="success">
+              <Button onClick={() => scrollToBottom(700)} variant="contained" color="success">
                 Booka tid
               </Button>
               <Button variant="outlined" color="secondary">

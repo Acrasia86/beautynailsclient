@@ -33,7 +33,8 @@ const BookedCustomers = () => {
         <WorkIcon />
       </Avatar>
     </ListItemAvatar>
-    <ListItemText primary={moment(x.bookedDate).format("DD-MM-YYYY HH:mm")} secondary={x.product.productName} />
+    <ListItemText primary={x.user.userName} />
+    <ListItemText style={{position: 'absolute', left: '350px'}} primary={x.product.productName} secondary={moment(x.bookedDate).format("DD-MM-YYYY HH:mm")} />
   </ListItem>
     ))
 
