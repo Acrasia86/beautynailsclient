@@ -84,7 +84,7 @@ class serviceStore {
     updateService = async (service: Service) => {
         try {
             let updateService = await agent.products.update(service);
-
+            this.services();
             runInAction(() => {
                  return updateService
             })

@@ -18,6 +18,7 @@ import { observer } from 'mobx-react-lite';
 import AddIcon from '@mui/icons-material/Add';
 import modalStore from '../../stores/modalStore';
 import AddService from '../../pages/AdminPage/AddService';
+import EditService from '../../pages/AdminPage/EditService';
 
 
 function AdminServicesList() {
@@ -112,6 +113,7 @@ function AdminServicesList() {
                   <TableCell align='left'>
                   <Stack spacing={2} direction="row">
                           <EditIcon
+                            key={service.id}
                             style={{
                               fontSize: "20px",
                               color:'#c9e552',
@@ -119,7 +121,7 @@ function AdminServicesList() {
                             }}
                             className="cursor-pointer"
                             onClick={() => {
-                              // updateService()
+                              openModal(<EditService service={service}/>)
                             }}
                           />
                           <DeleteIcon
