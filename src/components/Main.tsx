@@ -146,7 +146,9 @@ function Main() {
             {
             role.map((x: any) => {
               if(x === 'Admin' && token !== null) {
-                return (<div>Admin</div>)
+                return (
+                  <Link to='/admin'><div>Admin</div></Link>
+                )
               }
             })
             }

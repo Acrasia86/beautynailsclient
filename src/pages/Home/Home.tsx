@@ -8,13 +8,19 @@ import NailPolis from '../../components/NailPolish';
 import { Canvas } from '@react-three/fiber';
 import Main from '../../components/Main';
 import FromClients from '../../components/FromClients';
+import userStore from '../../stores/userStore';
+import LoginToBook from '../../components/LoginToBook';
 
 const Home = () => {
+
+  const {isLoggedIn} = userStore;
 
   return (<>
  
     <Main/>
+    { isLoggedIn ? 
     <TestBooking />
+    : <LoginToBook />}
      <PriceList />
      <FromClients/>
      <Footer />
