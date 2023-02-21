@@ -65,7 +65,7 @@ function PriceList() {
             <Card sx={{ minWidth: 275, background: '#e1ddd2' }}>
               <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                  Uppskatta tid: {servicesArra.timeToFinnish} min
+                  Uppskattad tid: {servicesArra.timeToFinnish} min
                 </Typography>
                 <Typography variant="h5" component="div">
                   {servicesArra.productName}
