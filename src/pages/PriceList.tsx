@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Masonry from '@mui/lab/Masonry';
-import { Divider, Typography } from '@mui/material';
+import { Divider, Grid, Typography } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -16,7 +16,7 @@ import ThankYou from '../components/Booking/ThankYou';
 
 <Box
   component="span"
-  sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)'}}>
+  sx={{ display: 'inline-block', mx: '2px', transform: 'scale(0.8)' }}>
 </Box>
 
 const style = {
@@ -31,13 +31,13 @@ const style = {
   p: 4,
 };
 
-  function PriceList() {
+function PriceList() {
   const [open, setOpen] = React.useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const { servicesArray, services, getServiceById, serviceObj } = serviceStore;
-  const {openModal} = modalStore;
+  const { openModal } = modalStore;
 
   const testing = () => {
     servicesArray.map((x) => {
@@ -48,40 +48,43 @@ const style = {
 
   React.useEffect(() => {
     services();
-  
+
   }, [servicesArray.length]);
-  
+
   return (
     <>
-      <Typography gutterBottom variant="h3" align='center' marginBottom={6}> 
-      <Divider>Prislista</Divider></Typography>
-      <Box component="div" sx={{ width: '90%', ml:'110px', mb:'80px' }}>
+
+      <Grid container item xs={12} lg={6} justifyContent="center" mx="auto" textAlign="center">
+        <Typography variant="h2" mb={2}>
+          Vår erbjudande
+        </Typography>
+      </Grid>
+      <Box component="div" sx={{ width: '90%', ml: '110px', mb: '80px' }}>
         <Masonry columns={4} spacing={2}>
-          
           {servicesArray.map((servicesArra) => (
-            <Card sx={{ minWidth: 275, background:'#e1ddd2' }}>
-            <CardContent>
-              <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-              Uppskatta tid: {servicesArra.timeToFinnish} min
-              </Typography>
-              <Typography variant="h5" component="div">
-              {servicesArra.productName}
-              </Typography>
-              <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              Pris: {servicesArra.price} kr
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button onClick={() => openModal(<ServiceInfo servicesArra={servicesArra}/>)} size="small" sx={{background:'#dde07d', color:'#555a54'}} >Läs mer</Button>
-            </CardActions>
-          </Card>
-            
+            <Card sx={{ minWidth: 275, background: '#e1ddd2' }}>
+              <CardContent>
+                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+                  Uppskatta tid: {servicesArra.timeToFinnish} min
+                </Typography>
+                <Typography variant="h5" component="div">
+                  {servicesArra.productName}
+                </Typography>
+                <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                  Pris: {servicesArra.price} kr
+                </Typography>
+              </CardContent>
+              <CardActions>
+                <Button onClick={() => openModal(<ServiceInfo servicesArra={servicesArra} />)} size="small" sx={{ background: '#dde07d', color: '#555a54' }} >Läs mer</Button>
+              </CardActions>
+            </Card>
+
           ))}
         </Masonry>
       </Box>
-  
+      <Divider sx={{ my: 6 }} />
       <div>
-    </div>
+      </div>
     </>
   );
 }

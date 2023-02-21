@@ -6,17 +6,17 @@ import Footer from '../../components/Footer';
 import TestBooking from '../../components/TestBooking';
 import NailPolis from '../../components/NailPolish';
 import { Canvas } from '@react-three/fiber';
+import Main from '../../components/Main';
+import FromClients from '../../components/FromClients';
 
 const Home = () => {
 
   return (<>
-    <Navbar />
-    <Canvas shadows>
-      {/* <NailPolis /> */}
-    </Canvas>
-    <Hero />
+ 
+    <Main/>
     <TestBooking />
      <PriceList />
+     <FromClients/>
      <Footer />
   </>
   )
