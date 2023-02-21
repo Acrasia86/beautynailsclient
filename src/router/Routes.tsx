@@ -9,9 +9,13 @@ import AdminSetting from "../pages/AdminPage/AdminSetting";
 import AdminPage from "../pages/AdminPage/AdminPage";
 import ThankYou from "../components/Booking/ThankYou";
 import ModalContainer from "../common/ModalContainer";
+import EditService from "../pages/AdminPage/EditService";
+import serviceStore from "../stores/serviceStore";
+import AdminServicesList from "../components/AdminComponents/AdminServicesList";
 
 export const routes: RouteObject[] = [
     {
+ 
         path: '/',
         element: <App />,
         children: [

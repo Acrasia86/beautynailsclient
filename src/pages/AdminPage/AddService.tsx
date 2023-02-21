@@ -8,8 +8,6 @@ import { v4 as uuidv4 } from "uuid";
 
 const AddService = () => {
 
-  let randomInt = Math.random() * 1000;
-  let roundedInt = Math.floor(randomInt);
   const initialCheckoutState = {
     id: uuidv4(),
     productName: "",
