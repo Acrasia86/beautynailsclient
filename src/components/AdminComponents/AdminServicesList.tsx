@@ -112,18 +112,7 @@ function AdminServicesList() {
                   </TableCell>
                   <TableCell align='left'>
                   <Stack spacing={2} direction="row">
-                          <EditIcon
-                            key={service.id}
-                            style={{
-                              fontSize: "20px",
-                              color:'#c9e552',
-                              cursor: "pointer",
-                            }}
-                            className="cursor-pointer"
-                            onClick={() => {
-                              openModal(<EditService service={service}/>)
-                            }}
-                          />
+                         
                           <DeleteIcon
                             style={{
                               fontSize: "20px",

@@ -18,6 +18,7 @@ import { observer } from "mobx-react-lite";
 import userStore from "../stores/userStore";
 import { Link } from "react-router-dom";
 import Face3 from "@mui/icons-material/Face3";
+import { useEffect, useRef } from "react";
 
 
 function Main() {
@@ -48,8 +49,22 @@ function Main() {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const foo = false; //loading method
+  const ref = useRef<HTMLInputElement>(null);
+
+  const scrollToBottom = () => {
+    if (ref.current) {
+      window.scrollTo({
+        behavior: "smooth",
+        top: ref.current.scrollTop += 700
+      });
+    }
+  }
+
   return (
     <Box component="header" position="relative">
+      
       <Box component="nav" position="absolute" top="0.5rem" width="100%">
         <Container>
           <Grid container flexDirection="row" alignItems="center">
@@ -189,7 +204,7 @@ function Main() {
                 {" "}
                 Beauty Nails{" "}
               </Typography>{" "}
-              <Box
+              <Box   
                 component="div"
                 sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}
               >
@@ -334,7 +349,7 @@ function Main() {
             flexDirection="column"
             justifyContent="center"
           >
-            <Typography variant="h1" color="#555a54" mb={3}>
+            <Typography variant="h1"  ref={ref} color="#555a54" mb={3}>
               EXPERTER PÅ SKÖNHET
             </Typography>
             <Typography>
@@ -343,7 +358,7 @@ function Main() {
               Medicinska fotvårdare och Auktoriserade Hudterapeuter
             </Typography>
             <Stack direction="row" spacing={1} mt={3}>
-              <Button variant="contained" color="success">
+              <Button onClick={scrollToBottom} variant="contained" color="success">
                 Booka tid
               </Button>
               <Button variant="outlined" color="secondary">

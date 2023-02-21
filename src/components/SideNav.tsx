@@ -17,6 +17,8 @@ import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
 import SettingsIcon from '@mui/icons-material/Settings';
 import ContentCutIcon from '@mui/icons-material/ContentCut';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@mui/material';
+import userStore from '../stores/userStore';
 
 
 const drawerWidth = 240;
@@ -73,7 +75,7 @@ export default function SideNav() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
-
+  const {logout} = userStore;
   return (
     <Box component="div" sx={{ display: 'flex'}}>
       <CssBaseline /> 
@@ -85,7 +87,7 @@ export default function SideNav() {
         </DrawerHeader>
         <Divider />
         <List >
-          <ListItem disablePadding sx={{ display: 'block',  }} onClick = {()=>{navigate('/admin')}}>
+          <ListItem disablePadding sx={{ display: 'block',  }} onClick = {()=>{navigate('/')}}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -148,28 +150,7 @@ export default function SideNav() {
               </ListItemButton>
             </ListItem>
           </List>
-          <List>
-            <ListItem disablePadding sx={{ display: 'block' }} onClick = {()=>{navigate('/settings')}}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
-                  sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
-                  }}
-                >
-                  <SettingsIcon />
-                </ListItemIcon>
-                <ListItemText primary='Inställningar' sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
-            </ListItem>
-          </List>
+          <Button style={{marginLeft: '10px'}} variant='outlined' onClick={logout}>Logga ut</Button>
         </List>
       </Drawer>
     </Box>

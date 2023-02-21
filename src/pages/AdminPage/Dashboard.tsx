@@ -23,6 +23,7 @@ import { observer } from 'mobx-react';
 import TotalIncome from './TotalIncome';
 import NumberOfBookedCustomers from './NumberOfBookedCustomers';
 import Birthdays from './Birthdays';
+import BookedCustomers from './BookedCustomers';
 
 const Dashboard = () => {
 
@@ -58,10 +59,7 @@ const Dashboard = () => {
             <Grid item xs={8}>
               <Card sx={{ minheight: 60 + 'vh', background: '#f7f2ef' }}>
                 <CardContent>
-                <Typography gutterBottom variant="h5" component="div" >
-                      Din kalender: 
-                    </Typography>
-                  <Calendar/>
+                 <BookedCustomers />
                 </CardContent>
               </Card>
             </Grid>
