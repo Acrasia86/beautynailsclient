@@ -282,9 +282,10 @@ function Main() {
           </Grid>
         </Container>
       </Box>
-
-      <Box component="div" display="flex" alignItems="center" minHeight="100vh">
-      <Canvas>{/* <NailPolish /> */}</Canvas>
+      <Canvas>
+        {/* <NailPolish/> */}
+        </Canvas>
+      <Box style={{position: 'absolute', bottom: '-30px', width: '50%', left: '50px'}} component="div" display="flex" alignItems="center" minHeight="100vh">
         <Container>
           <Grid
             container
