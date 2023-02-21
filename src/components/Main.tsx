@@ -18,17 +18,19 @@ import { observer } from "mobx-react-lite";
 import userStore from "../stores/userStore";
 import { Link } from "react-router-dom";
 import Face3 from "@mui/icons-material/Face3";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import PriceList from "../pages/PriceList";
-
+import store from "../stores/store";
 
 function Main() {
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
   const open = Boolean(anchorEl);
-  const { isLoggedIn, user, logout, role } = userStore;
+  const { isLoggedIn, user, logout} = userStore;
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
   const { openModal } = modalStore;
+  const [role, setRole] = useState<[]>([]);
+  const {token} = store;
 
   const handleOpenNavMenu = (event: any) => {
     setAnchorElNav(event.currentTarget);
@@ -63,9 +65,21 @@ function Main() {
     }
   }
 
+  useEffect(() => {
+      fetch('http://localhost:5235/api/account/getrole', {
+        method: 'GET',
+        headers: {
+          'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + store.token,
+        }
+      }).then(res => res.json())
+        .then(data => setRole(data));
+      console.log("Blabla role " + role);
+}, [role.length, store.token?.length])
+
   return (
     <Box component="header" position="relative">
-      
       <Box component="nav" position="absolute" top="0.5rem" width="100%">
         <Container>
           <Grid container flexDirection="row" alignItems="center">
@@ -129,6 +143,14 @@ function Main() {
                 </Typography>
               </Box>
             </Box>
+            {
+            role.map((x: any) => {
+              if(x === 'Admin' && token !== null) {
+                return (<div>Admin</div>)
+              }
+            })
+            }
+
             <Box
               component="ul"
               display={{ xs: "none", lg: "flex" }}
@@ -218,7 +240,7 @@ function Main() {
                     
                     <Face2Icon />
                   </IconButton>
-            
+
                 <Menu
                   sx={{ mt: "45px", ml: "40px" }}
                   id="menu-appbar"
@@ -229,6 +251,7 @@ function Main() {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
+
                   {" "}
                   {!isLoggedIn ? (
                     <MenuItem
@@ -251,83 +274,15 @@ function Main() {
                     {" "}
                     <Typography textAlign="center">Skapa konto</Typography>{" "}
                   </MenuItem>{" "}
-                  {isLoggedIn ? (
-                    <MenuItem onClick={handleCloseUserMenu}>
-                      {" "}
-                      <Link to="/admin">
-                        {" "}
-                        <Typography textAlign="center">Admin</Typography>{" "}
-                      </Link>{" "}
-                    </MenuItem>
-                  ) : null}{" "}
                 </Menu>{" "}
               </Box>
-              {/* <Box component="div">
-                                <Typography
-                                    component={Link1}
-                                    href="#"
-                                    variant="button"
-                                    p={1}
-                                    onClick={(e) => e.preventDefault()}
-                                >
-                                    <Box component="div" color="#555a54"><div>
-                                        <Button
-                                            id="basic-button"
-                                            aria-controls={open ? 'basic-menu' : undefined}
-                                            aria-haspopup="true"
-                                            aria-expanded={open ? 'true' : undefined}
-                                            onClick={handleOpenNavMenu}
-                                        >
-                                        <Face2Icon />
-                                        </Button>
-                                        <Menu
-                                            id="menu-appbar"
-                                            anchorEl={anchorElNav}
-                                            anchorOrigin={{
-                                                vertical: 'bottom',
-                                                horizontal: 'left',
-                                              }}
-                                              keepMounted
-                                              transformOrigin={{
-                                                vertical: 'top',
-                                                horizontal: 'left',
-                                              }}
-                                              open={Boolean(anchorElNav)}
-                                              onClose={handleCloseNavMenu}
-                                              sx={{
-                                                display: { xs: 'block', md: 'none' },
-                                              }}
-                                        >
-                                             {!isLoggedIn ? 
-                <MenuItem style={{textDecoration: 'none'}}  onClick={() => openModal(<LoginForm />)}>
-                  <Typography textAlign="center">Logga in</Typography>
-                </MenuItem>
-                : 
-                <MenuItem onClick={logout}>
-                  <Typography textAlign="center">Logga ut</Typography>
-                </MenuItem> 
-                }
-                <MenuItem style={{textDecoration: 'none'}}  onClick={() => openModal(<RegisterForm />)}>
-                  <Typography textAlign="center">Skapa konto</Typography>
-                </MenuItem>
-                { isLoggedIn ?
-                <MenuItem onClick={handleCloseUserMenu}>
-                  <Link to='/admin'>
-                  <Typography textAlign="center">Admin</Typography>
-                  </Link>
-                </MenuItem>
-                : null}                   
-                                        </Menu>
-                                    </div></Box>
-                                </Typography>
-
-                            </Box> */}
             </Box>
           </Grid>
         </Container>
       </Box>
+
       <Box component="div" display="flex" alignItems="center" minHeight="100vh">
-        <Canvas>{/* <NailPolish /> */}</Canvas>
+      <Canvas>{/* <NailPolish /> */}</Canvas>
         <Container>
           <Grid
             container
@@ -350,7 +305,7 @@ function Main() {
               <Button onClick={() => scrollToBottom(700)} variant="contained" color="success">
                 Booka tid
               </Button>
-              <Button variant="outlined" color="secondary">
+              <Button onClick={() => scrollToBottom(950)} variant="outlined" color="secondary">
                 Tjänster
               </Button>
             </Stack>

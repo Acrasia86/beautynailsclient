@@ -5,6 +5,7 @@ import { Button, FormGroup, TextField } from '@mui/material';
 import serviceStore from '../../stores/serviceStore';
 import modalStore from '../../stores/modalStore';
 import { v4 as uuidv4 } from "uuid";
+import userStore from '../../stores/userStore';
 
 const AddService = () => {
 
@@ -19,6 +20,7 @@ const AddService = () => {
   const [initCheckout, setInitCheckout] = useState(initialCheckoutState);
   const {createService, servicesArray, services} = serviceStore;
   const {closeModal} = modalStore;
+  const {role, getUser, user, setRole} = userStore;
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -33,6 +35,8 @@ const AddService = () => {
   };
 
   useEffect(() => {
+    setRole();
+    console.log('role ' + JSON.stringify(role))
     services();
   }, [servicesArray.length])
   

@@ -12,7 +12,7 @@ class userStore {
     user: User | null = null;
     email: string = '';
     password: string = '';
-    role: [] = [];
+    role: Role[] = [];
     users: User[] = [];
     birthdays: User[] = [];
 
@@ -56,8 +56,9 @@ class userStore {
     }
 }
 
-   setRole = (role: []) => {
-    this.role = [...role];
+   setRole = async () => {
+    const userRoles = await agent.account.role();
+    this.role = [...userRoles];
 }
 
 
