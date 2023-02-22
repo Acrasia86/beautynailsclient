@@ -53,9 +53,9 @@ function PriceList() {
 
   return (
     <>
-
-      <Grid container item xs={12} lg={6} justifyContent="center" mx="auto" textAlign="center">
-        <Typography style={{marginTop: '400px', marginBottom: '50px'}} variant="h2" mb={2}>
+<div className='price-list-container'>
+      <Grid container item xs={12} lg={4} justifyContent="center" mx="auto" textAlign="center">
+        <Typography style={{marginTop: '40px', marginBottom: '50px', color:'white'}} variant="h2" mb={2}>
           Våra erbjudande
         </Typography>
       </Grid>
@@ -82,8 +82,6 @@ function PriceList() {
           ))}
         </Masonry>
       </Box>
-      <Divider sx={{ my: 6 }} />
-      <div>
       </div>
     </>
   );
