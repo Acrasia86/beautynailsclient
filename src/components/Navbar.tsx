@@ -53,6 +53,17 @@ const Navbar = () => {
         handleCloseUserMenu();
       }
 
+      const handleLogin = () => {
+        openModal(<LoginForm />)
+        handleCloseUserMenu();
+      }
+
+      const handleRegister = () => {
+        openModal(<RegisterForm />)
+        handleCloseUserMenu();
+      }
+
+
     useEffect(() => {
         fetch('http://localhost:5235/api/account/getrole', {
           method: 'GET',
@@ -236,7 +247,7 @@ const Navbar = () => {
             {!isLoggedIn ? (
               <MenuItem
                 style={{ textDecoration: "none" }}
-                onClick={() => openModal(<LoginForm />)}
+                onClick={handleLogin}
               >
                 {" "}
                 <Typography textAlign="center">Logga in</Typography>{" "}
@@ -249,7 +260,7 @@ const Navbar = () => {
             )}{" "}
             <MenuItem
               style={{ textDecoration: "none" }}
-              onClick={() => openModal(<RegisterForm />)}
+              onClick={handleRegister}
             >
               {" "}
               <Typography ref={ref} textAlign="center">Skapa konto</Typography>{" "}
