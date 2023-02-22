@@ -82,7 +82,7 @@ const Navbar = () => {
           }
         }).then(res => res.json())
           .then(data => setRole(data));
-  }, [role.length, store.token?.length, users.length])
+  }, [role.length, store.token?.length])
 
   return (
     <Container>
@@ -146,10 +146,10 @@ const Navbar = () => {
         </Box>
       </Box>
       {
-      role.map((x: any) => {
+      role.map((x: any, i: any) => {
         if(x === 'Admin' && token !== null && isLoggedIn) {
           return (
-            <Link to='/admin'><div style={{position: 'absolute', top: '10px', left: '900px'}}>Admin</div></Link>
+            <Link key={i} to='/admin'><div style={{position: 'absolute', top: '10px', left: '900px'}}>Admin</div></Link>
           )
         }
       })
@@ -228,7 +228,7 @@ const Navbar = () => {
             </MenuItem>
           ) : null}{" "}
         </Box>{" "}
-        <Box component="div" sx={{ flexGrow: 0 }}>
+        <Box ref={ref} component="div" sx={{ flexGrow: 0 }}>
          
         
             <IconButton
@@ -266,13 +266,14 @@ const Navbar = () => {
                 <Typography textAlign="center">Logga ut</Typography>{" "}
               </MenuItem>
             )}{" "}
+            { !isLoggedIn ?
             <MenuItem
               style={{ textDecoration: "none" }}
               onClick={handleRegister}
             >
-              {" "}
-              <Typography ref={ref} textAlign="center">Skapa konto</Typography>{" "}
-            </MenuItem>{" "}
+              <Typography textAlign="center">Skapa konto</Typography>
+            </MenuItem>
+            : null }
           </Menu>{" "}
         </Box>
       </Box>

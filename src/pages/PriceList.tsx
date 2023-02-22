@@ -59,7 +59,7 @@ function PriceList() {
           Våra erbjudande
         </Typography>
       </Grid>
-      <Box component="div" sx={{ width: '90%', ml: '70px', mb: '80px' }}>
+      <Box component="div" sx={{ width: '90%', ml: '30px', mb: '80px' }}>
         <Masonry columns={4} spacing={2}>
           {servicesArray.map((servicesArra) => (
             <Card key={servicesArra.id} sx={{ minWidth: 275, background: '#e1ddd2' }}>

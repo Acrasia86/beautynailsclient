@@ -27,9 +27,9 @@ const AdminPage = () => {
 
     <div>
       {
-        role.map((userRole) => {
+        role.map((userRole, i) => {
           if(userRole === 'Admin' && store.token !== null && isLoggedIn) {
-            return <Dashboard/>
+            return <Dashboard key={i}/>
           }
           else if(!isLoggedIn) {
             <div>You are not permitted to be here</div>

@@ -17,7 +17,6 @@ const Home = () => {
   const {isLoggedIn, user, getUser} = userStore;
 
   useEffect(() => {
-    getUser();
   }, [])
 
   return (<>
