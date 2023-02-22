@@ -20,7 +20,7 @@ const TestBooking = () => {
 
   const { servicesArray, services, serviceObj, setServiceChosen, service, setService, selectService } = serviceStore;
   const { createCheckout, dateChosen, setDateChosen, nextStepChosen, setConfirmChosen, confirmChosen } = checkoutStore;
-
+  const { isLoggedIn, users } = userStore;
   const navigate = useNavigate();
 
   const initialCheckoutState = {
@@ -38,7 +38,7 @@ const TestBooking = () => {
     const { name, value } = event.target;
     setService(event.target.value as string);
     setInitCheckout({ ...initCheckout, [name]: value });
-    setServiceChosen(true);
+      setServiceChosen(true);
   };
 
   const handleInputChange = (
@@ -53,12 +53,12 @@ const TestBooking = () => {
   ) => {
     const { name, value } = e.target;
     setInitCheckout({ ...initCheckout, [name]: value });
-    setDateChosen(true);
+      setDateChosen(true);
   };
 
   const onSubmit = () => {
     createCheckout(initCheckout);
-    setConfirmChosen(true);
+      setConfirmChosen(true);
     navigate('/thankyou')
   };
 
@@ -83,7 +83,7 @@ const TestBooking = () => {
           onClick={onSubmit}
           variant="contained"
           color="success"
-          style={{width: '30%', marginLeft: '45px'}}
+          style={{marginLeft: '45px', position: 'absolute', bottom: '-400px'}}
         >
           Bekräfta
         </Button>

@@ -11,6 +11,7 @@ import userStore from '../../stores/userStore';
 import LoginToBook from '../../components/LoginToBook';
 import { useEffect } from 'react';
 import Navbar from '../../components/Navbar';
+import Checkout from '../../components/BookingNew/Checkout';
 
 const Home = () => {
 

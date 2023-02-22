@@ -8,14 +8,15 @@ import Link1 from "@mui/material/Link";
 import modalStore from '../stores/modalStore';
 import store from '../stores/store';
 import userStore from '../stores/userStore';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoginForm from '../features/users/LoginForm';
 import RegisterForm from '../features/users/RegisterForm';
+import serviceStore from '../stores/serviceStore';
+import checkoutStore from '../stores/checkoutStore';
 
 const Navbar = () => {
 
     const ref = useRef<HTMLInputElement>(null);
-
     const scrollToBottom = (count: number) => {
       if (ref.current) {
         window.scrollTo({
@@ -28,7 +29,9 @@ const Navbar = () => {
     const [role, setRole] = useState<[]>([]);
     const { openModal } = modalStore;
     const {token} = store;
-    const { isLoggedIn, user, logout} = userStore;
+    const { setServiceChosen, setService } = serviceStore;
+    const { setConfirmChosen, setDateChosen, setNextStepChosen } = checkoutStore;
+    const { isLoggedIn, user, logout, getUser, getAllUsers, users} = userStore;
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -51,6 +54,11 @@ const Navbar = () => {
       const handleLogout = () => {
         logout();
         handleCloseUserMenu();
+        setServiceChosen(false);
+        setDateChosen(false);
+        setNextStepChosen(false);
+        setConfirmChosen(false);
+        setService('');
       }
 
       const handleLogin = () => {
@@ -74,7 +82,7 @@ const Navbar = () => {
           }
         }).then(res => res.json())
           .then(data => setRole(data));
-  }, [role.length, store.token?.length])
+  }, [role.length, store.token?.length, users.length])
 
   return (
     <Container>
