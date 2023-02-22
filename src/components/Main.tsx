@@ -305,10 +305,10 @@ function Main() {
               Medicinska fotvårdare och Auktoriserade Hudterapeuter
             </Typography>
             <Stack direction="row" spacing={1} mt={3}>
-              <Button onClick={() => scrollToBottom(700)} variant="contained" color="success">
+              <Button onClick={() => scrollToBottom(650)} variant="contained" color="success">
                 Booka tid
               </Button>
-              <Button onClick={() => scrollToBottom(950)} variant="outlined" color="secondary">
+              <Button onClick={() => scrollToBottom(1250)} variant="outlined" color="secondary">
                 Tjänster
               </Button>
             </Stack>

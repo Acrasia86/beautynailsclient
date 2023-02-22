@@ -8,7 +8,8 @@ body {
     height: 100%;
     margin: 0;
     padding: 0;
-    background-image: linear-gradient(to left top, #f7f2ef, #f2ece8, #ede7e0, #e7e2d9, #e1ddd2);
+    /* background-image: linear-gradient(to left top, #f7f2ef, #f2ece8, #ede7e0, #e7e2d9, #e1ddd2); */
+    background-color: #ede7e0;
 
 }
 

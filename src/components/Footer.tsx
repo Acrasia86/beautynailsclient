@@ -39,6 +39,7 @@ const Footer = () => {
 
   const latitude = '56.04332083738107';
   const longitude = '12.696538086506193';
+  
 
   const showInMapClicked = () => {
     window.open("https://maps.google.com?q="+latitude+","+longitude);
