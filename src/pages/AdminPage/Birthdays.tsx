@@ -22,8 +22,8 @@ const Birthdays = () => {
       </div>
       <div>
       <Typography gutterBottom variant="h5" component="div">
-       {birthdays.map((bday) => (
-        <div>{bday.userName}</div>
+       {birthdays.map((bday, i) => (
+        <div key={i}>{bday.userName}</div>
        ))}
       </Typography>
       </div>

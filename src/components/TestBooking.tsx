@@ -14,14 +14,16 @@ import UserFeedback from "./Booking/UserFeedback";
 import BookingStepper from "./Booking/BookingStepper";
 import { useNavigate } from "react-router-dom";
 import userStore from "../stores/userStore";
+import modalStore from "../stores/modalStore";
 
 const TestBooking = () => {
 
 
   const { servicesArray, services, serviceObj, setServiceChosen, service, setService, selectService } = serviceStore;
   const { createCheckout, dateChosen, setDateChosen, nextStepChosen, setConfirmChosen, confirmChosen } = checkoutStore;
-  const { isLoggedIn, users } = userStore;
+  const { isLoggedIn, users, getUser } = userStore;
   const navigate = useNavigate();
+  const {openModal} = modalStore;
 
   const initialCheckoutState = {
     id: uuidv4(),
