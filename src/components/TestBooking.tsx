@@ -1,12 +1,6 @@
 import {
-  Box,
   Button,
-  FormControl,
-  Input,
   SelectChangeEvent,
-  Step,
-  StepLabel,
-  Stepper,
 } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import { ChangeEvent, useEffect, useState } from "react";
@@ -19,12 +13,13 @@ import BookingDatePicker from "./Booking/BookingDatePicker";
 import UserFeedback from "./Booking/UserFeedback";
 import BookingStepper from "./Booking/BookingStepper";
 import { useNavigate } from "react-router-dom";
+import userStore from "../stores/userStore";
 
 const TestBooking = () => {
 
 
   const { servicesArray, services, serviceObj, setServiceChosen, service, setService, selectService } = serviceStore;
-  const { createCheckout, dateChosen, setDateChosen, nextStepChosen, setConfirmChosen } = checkoutStore;
+  const { createCheckout, dateChosen, setDateChosen, nextStepChosen, setConfirmChosen, confirmChosen } = checkoutStore;
 
   const navigate = useNavigate();
 

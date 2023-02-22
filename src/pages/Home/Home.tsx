@@ -9,15 +9,21 @@ import Main from '../../components/Main';
 import FromClients from '../../components/FromClients';
 import userStore from '../../stores/userStore';
 import LoginToBook from '../../components/LoginToBook';
+import { useEffect } from 'react';
+import Navbar from '../../components/Navbar';
 
 const Home = () => {
 
-  const {isLoggedIn} = userStore;
+  const {isLoggedIn, user, getUser} = userStore;
+
+  useEffect(() => {
+    getUser();
+  }, [])
 
   return (<>
- 
+    <Navbar />
     <Main/>
-    { isLoggedIn ? 
+    { isLoggedIn ?
     <TestBooking />
     : <LoginToBook />}
      <PriceList />
