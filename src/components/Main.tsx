@@ -70,7 +70,7 @@ function Main() {
               <Button onClick={() => scrollToBottom(650)} variant="contained" color="success">
                 Booka tid
               </Button>
-              <Button onClick={() => scrollToBottom(1500)} variant="outlined" color="secondary">
+              <Button onClick={() => scrollToBottom(1350)} variant="outlined" color="secondary">
                 Tjänster
               </Button>
             </Stack>
