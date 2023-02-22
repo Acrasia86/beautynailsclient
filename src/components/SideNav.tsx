@@ -146,7 +146,7 @@ export default function SideNav() {
                 >
                   <PeopleAltIcon />
                 </ListItemIcon>
-                <ListItemText primary='Kunder' sx={{ opacity: open ? 1 : 0 }} />
+                <ListItemText primary='Användare' sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
             </ListItem>
           </List>

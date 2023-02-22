@@ -68,23 +68,30 @@ const Dashboard = () => {
                   <Card sx={{ height: 60 + 'vh', background: '#f7f2ef' }}>
                   <CardContent>
                     <div className='dashboad-info'>
-                      <span className='info-title'>Användare</span>
+                      <span className='info-title'>Personalen</span>
                     </div>
-                    {users.map((usr, i) => {
-                return (
-             <Stack key={i} spacing={2} direction='row'>
+             <Stack spacing={2} direction='row'>
              <div className='info-icon'>
   
-               <Avatar alt="Users">{usr.userName[0]}</Avatar>
+               <Avatar alt="Users">J</Avatar>
              </div>
              <div className='dashboad-info'>
                <span>Hudvårdsterapeut</span>
                <br />
-                <span>{usr.userName}</span>
+                <span>Jacob@mail.com</span>
              </div>
            </Stack>
-                     )
-                    })}
+           <Stack spacing={2} direction='row'>
+             <div className='info-icon'>
+  
+               <Avatar alt="Users">A</Avatar>
+             </div>
+             <div className='dashboad-info'>
+               <span>Hudvårdsterapeut</span>
+               <br />
+                <span>Aleksandra@mail.com</span>
+             </div>
+           </Stack>
                   </CardContent>
                 </Card>
       
