@@ -55,11 +55,11 @@ function PriceList() {
     <>
 
       <Grid container item xs={12} lg={6} justifyContent="center" mx="auto" textAlign="center">
-        <Typography style={{marginTop: '50px', marginBottom: '50px'}} variant="h2" mb={2}>
+        <Typography style={{marginTop: '400px', marginBottom: '50px'}} variant="h2" mb={2}>
           Våra erbjudande
         </Typography>
       </Grid>
-      <Box component="div" sx={{ width: '90%', ml: '110px', mb: '80px' }}>
+      <Box component="div" sx={{ width: '90%', ml: '70px', mb: '80px' }}>
         <Masonry columns={4} spacing={2}>
           {servicesArray.map((servicesArra) => (
             <Card sx={{ minWidth: 275, background: '#e1ddd2' }}>
