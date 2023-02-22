@@ -62,7 +62,7 @@ function PriceList() {
       <Box component="div" sx={{ width: '90%', ml: '70px', mb: '80px' }}>
         <Masonry columns={4} spacing={2}>
           {servicesArray.map((servicesArra) => (
-            <Card sx={{ minWidth: 275, background: '#e1ddd2' }}>
+            <Card key={servicesArra.id} sx={{ minWidth: 275, background: '#e1ddd2' }}>
               <CardContent>
                 <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
                   Uppskattad tid: {servicesArra.timeToFinnish} min

@@ -150,7 +150,7 @@ export default function SideNav() {
               </ListItemButton>
             </ListItem>
           </List>
-          <Button style={{marginLeft: '10px'}} variant='outlined' onClick={logout}>Logga ut</Button>
+          <Button style={{marginLeft: '70px', marginTop: '50px'}} variant='outlined' onClick={logout}>Logga ut</Button>
         </List>
       </Drawer>
     </Box>
