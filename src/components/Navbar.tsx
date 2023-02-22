@@ -103,7 +103,7 @@ const Navbar = () => {
         
         <Box component="li">
           <Typography
-          style={{cursor: 'pointer', textDecoration: 'underline'}}
+          style={{cursor: 'pointer', textDecoration: 'underline', position: 'absolute', top: '0px', left: '480px'}}
             variant="button"
             color="#555a54"
             fontWeight="regular"
@@ -115,7 +115,7 @@ const Navbar = () => {
         </Box>
         <Box component="li">
           <Typography
-            style={{cursor: 'pointer', textDecoration: 'underline'}}
+            style={{cursor: 'pointer', textDecoration: 'underline', position: 'absolute', top: '0px', left: '650px'}}
             variant="button"
             color="#555a54"
             fontWeight="regular"
@@ -130,7 +130,7 @@ const Navbar = () => {
       role.map((x: any) => {
         if(x === 'Admin' && token !== null && isLoggedIn) {
           return (
-            <Link to='/admin'><div>Admin</div></Link>
+            <Link to='/admin'><div style={{position: 'absolute', top: '10px', left: '900px'}}>Admin</div></Link>
           )
         }
       })
