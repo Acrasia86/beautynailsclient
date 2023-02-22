@@ -19,6 +19,8 @@ import ContentCutIcon from '@mui/icons-material/ContentCut';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@mui/material';
 import userStore from '../stores/userStore';
+import serviceStore from '../stores/serviceStore';
+import checkoutStore from '../stores/checkoutStore';
 
 
 const drawerWidth = 240;
@@ -76,6 +78,30 @@ export default function SideNav() {
   const [open, setOpen] = React.useState(true);
   const navigate = useNavigate();
   const {logout} = userStore;
+
+  const { setServiceChosen, setService } = serviceStore;
+  const { setConfirmChosen, setDateChosen, setNextStepChosen } = checkoutStore;
+
+  const handleLogout = () => {
+    logout();
+    setServiceChosen(false);
+    setDateChosen(false);
+    setNextStepChosen(false);
+    setConfirmChosen(false);
+    setService('');
+  }
+
+
+  const handleHomeClicked = () => {
+    setServiceChosen(false);
+    setDateChosen(false);
+    setNextStepChosen(false);
+    setConfirmChosen(false);
+    setService('');
+    navigate('/');
+  }
+
+
   return (
     <Box component="div" sx={{ display: 'flex'}}>
       <CssBaseline /> 
@@ -87,7 +113,7 @@ export default function SideNav() {
         </DrawerHeader>
         <Divider />
         <List >
-          <ListItem disablePadding sx={{ display: 'block',  }} onClick = {()=>{navigate('/')}}>
+          <ListItem disablePadding sx={{ display: 'block',  }} onClick = {handleHomeClicked}>
             <ListItemButton
               sx={{
                 minHeight: 48,
@@ -150,7 +176,7 @@ export default function SideNav() {
               </ListItemButton>
             </ListItem>
           </List>
-          <Button style={{marginLeft: '70px', marginTop: '50px'}} variant='outlined' onClick={logout}>Logga ut</Button>
+          <Button style={{marginLeft: '70px', marginTop: '50px'}} variant='outlined' onClick={handleLogout}>Logga ut</Button>
         </List>
       </Drawer>
     </Box>

@@ -14,7 +14,7 @@ class store {
                 if(token) {
                     localStorage.setItem('jwt', token)
                 } else {
-                    localStorage.clear()
+                    localStorage.removeItem('jtw')
                 }
             }
         )

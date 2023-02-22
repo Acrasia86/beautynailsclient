@@ -9,14 +9,14 @@ export interface Props {
 
 const UserInputs = ({handleInputChange} :Props) => {
 
-    const { user, getUser } = userStore;
+    const { user, getUser, getAllUsers, users } = userStore;
     
     useEffect(() => {
-        getUser();
+
     }, [])
 
   return (
-    <Box component="div">
+    <Box style={{position: 'absolute'}} component="div">
          <Box component="div" sx={{display: 'flex', flexDirection: 'column', width: '500px', marginTop: '135px', marginLeft: '50px', marginBottom: '30px'}}>
           <Typography sx={{mb: '15px'}}>{user?.userName}</Typography>
           <FormControl>
