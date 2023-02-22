@@ -108,7 +108,7 @@ const Navbar = () => {
             color="#555a54"
             fontWeight="regular"
             p={1}
-            onClick={() => scrollToBottom(1250)}
+            onClick={() => scrollToBottom(1500)}
           >
             Erbjudande
           </Typography>
@@ -120,7 +120,7 @@ const Navbar = () => {
             color="#555a54"
             fontWeight="regular"
             p={1}
-            onClick={() => scrollToBottom(2000)}
+            onClick={() => scrollToBottom(2400)}
           >
             Kontakt
           </Typography>
