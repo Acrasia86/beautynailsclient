@@ -1,11 +1,11 @@
 import { styled, Typography } from "@mui/material";
 import { Box, Container } from "@mui/system";
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import PinterestIcon from '@mui/icons-material/Pinterest';
-import PhoneIcon from '@mui/icons-material/Phone';
-import MailOutlineIcon from '@mui/icons-material/MailOutline';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import PinterestIcon from "@mui/icons-material/Pinterest";
+import PhoneIcon from "@mui/icons-material/Phone";
+import MailOutlineIcon from "@mui/icons-material/MailOutline";
+import LocationOnIcon from "@mui/icons-material/LocationOn";
 
 const Footer = () => {
   const CustomContainer = styled(Container)(({ theme }) => ({
@@ -37,13 +37,12 @@ const Footer = () => {
     },
   }));
 
-  const latitude = '56.04332083738107';
-  const longitude = '12.696538086506193';
-  
+  const latitude = "56.04332083738107";
+  const longitude = "12.696538086506193";
 
   const showInMapClicked = () => {
-    window.open("https://maps.google.com?q="+latitude+","+longitude);
-  }
+    window.open("https://maps.google.com?q=" + latitude + "," + longitude);
+  };
 
   return (
     <Box component="div" sx={{ py: 5 }}>
@@ -68,13 +67,17 @@ const Footer = () => {
                 mb: 2,
               }}
             >
-             <LocationOnIcon style={{cursor: 'pointer'}} onClick={showInMapClicked} />Järnvägsgatan 29
-              <br/>
-               25224 Helsingborg
+              <LocationOnIcon
+                style={{ cursor: "pointer" }}
+                onClick={showInMapClicked}
+              />
+              Järnvägsgatan 29
+              <br />
+              25224 Helsingborg
             </Typography>
           </Box>
 
-          <Box component='div'>
+          <Box component="div">
             <Typography
               sx={{
                 fontSize: "20px",
@@ -94,13 +97,12 @@ const Footer = () => {
                 mb: 2,
               }}
             >
-            Mån - Fre 10:00 - 19:00
-            <br/>
-            Lö 10:00 - 18:00
-            <br/>
+              Mån - Fre 10:00 - 19:00
+              <br />
+              Lö 10:00 - 18:00
+              <br />
             </Typography>
           </Box>
- 
 
           <Box component="div">
             <Typography
@@ -114,11 +116,14 @@ const Footer = () => {
               Kontakt
             </Typography>
 
-            <FooterLink> <PhoneIcon/> 0704329119</FooterLink>
+            <FooterLink>
+              <PhoneIcon /> 0704329119
+            </FooterLink>
             <br />
-            <FooterLink> <MailOutlineIcon/> beauty@nails.com</FooterLink>
+            <FooterLink>
+              <MailOutlineIcon /> beauty@nails.com
+            </FooterLink>
             <br />
-
           </Box>
 
           <Box component="div">
@@ -130,7 +135,7 @@ const Footer = () => {
                 mb: 2,
               }}
             >
-             Följ oss
+              Följ oss
             </Typography>
 
             <Typography
@@ -144,9 +149,9 @@ const Footer = () => {
               Vi finns på sociala medier
             </Typography>
             <IconBox>
-            <FacebookIcon style={{ cursor: "pointer" }}/>
-              <InstagramIcon style={{ cursor: "pointer" }}/>
-              <PinterestIcon style={{ cursor: "pointer" }}/>
+              <FacebookIcon style={{ cursor: "pointer" }} />
+              <InstagramIcon style={{ cursor: "pointer" }} />
+              <PinterestIcon style={{ cursor: "pointer" }} />
             </IconBox>
           </Box>
         </CustomContainer>

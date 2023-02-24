@@ -1,11 +1,10 @@
-import { observer } from 'mobx-react'
-import React, { useEffect } from 'react'
-import serviceStore from '../stores/serviceStore';
-import OneService from './OneService';
+import { observer } from "mobx-react";
+import React, { useEffect } from "react";
+import serviceStore from "../stores/serviceStore";
+import OneService from "./OneService";
 
 const ServiceList = () => {
-
-  const {servicesArray, services} = serviceStore;
+  const { servicesArray, services } = serviceStore;
 
   useEffect(() => {
     services();
@@ -14,10 +13,10 @@ const ServiceList = () => {
   return (
     <div>
       {servicesArray.map((service) => (
-        <OneService service={service}/>
+        <OneService service={service} />
       ))}
     </div>
-  )
-}
+  );
+};
 
 export default observer(ServiceList);

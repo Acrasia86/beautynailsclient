@@ -8,98 +8,92 @@ import modalStore from "./modalStore";
 import store from "./store";
 
 class userStore {
+  user: User | null = null;
+  email: string = "";
+  password: string = "";
+  role: Role[] = [];
+  users: User[] = [];
+  birthdays: User[] = [];
 
-    user: User | null = null;
-    email: string = '';
-    password: string = '';
-    role: Role[] = [];
-    users: User[] = [];
-    birthdays: User[] = [];
+  constructor() {
+    makeAutoObservable(this);
+  }
 
-    constructor() {
-        makeAutoObservable(this);
+  get isLoggedIn() {
+    return !!this.user;
+  }
+
+  login = async (creds: UserFormValues) => {
+    try {
+      const user = await agent.account.login(creds);
+      store.setToken(user.token);
+      runInAction(() => (this.user = user));
+      router.navigate("/");
+      modalStore.closeModal();
+      console.log(user);
+    } catch (error) {
+      throw error;
     }
+  };
 
-    get isLoggedIn() {
-        return !! this.user;
-    }
-
-    login = async(creds: UserFormValues) => {
-        try {
-            const user = await agent.account.login(creds);
-            store.setToken(user.token);
-            runInAction(() => this.user = user);
-            router.navigate('/')
-            modalStore.closeModal();
-            console.log(user);
-        } catch(error) {
-            throw error;
-        }
-    }
-
-   logout = () => {
+  logout = () => {
     store.setToken(null);
     this.user = null;
-    router.navigate('/')
-   }
+    router.navigate("/");
+  };
 
-   register = async(creds: UserFormValues) => {
+  register = async (creds: UserFormValues) => {
     try {
-        const user = await agent.account.register(creds);
-        store.setToken(user.token);
-        runInAction(() => this.user = user);
-        router.navigate('/')
-        modalStore.closeModal();
-        console.log(user);
-    } catch(error) {
-        throw error;
+      const user = await agent.account.register(creds);
+      store.setToken(user.token);
+      runInAction(() => (this.user = user));
+      router.navigate("/");
+      modalStore.closeModal();
+      console.log(user);
+    } catch (error) {
+      throw error;
     }
-}
+  };
 
-   setRole = async () => {
+  setRole = async () => {
     const userRoles = await agent.account.role();
     this.role = [...userRoles];
-}
+  };
 
-
-getAllUsers = async () => {
+  getAllUsers = async () => {
     try {
-        const users = await agent.account.getAllUsers();
-        runInAction(() => {
-            if(users === null) {
-                return null;
-            }
-            this.users = [...users];
-        })
-    } catch(error) {
-        throw error;
-    }
-
-
-}
-
-   getUser = async () => {
-    try {
-        const user = await agent.account.current();
-        runInAction(() => this.user = user);
+      const users = await agent.account.getAllUsers();
+      runInAction(() => {
+        if (users === null) {
+          return null;
+        }
+        this.users = [...users];
+      });
     } catch (error) {
-        console.log(error);
+      throw error;
     }
-   }
+  };
 
-   birthday = async () => {
+  getUser = async () => {
     try {
-        const bday = await agent.account.birthday();
-
-        runInAction(() => {
-
-            this.birthdays = [...bday];
-        })
-    } catch(err) {
-        throw new Error("Something went wrong loading birthdays");
+      const user = await agent.account.current();
+      runInAction(() => (this.user = user));
+    } catch (error) {
+      console.log(error);
     }
-}
+  };
 
+  birthday = async () => {
+    try {
+      const bday = await agent.account.birthday();
+
+      runInAction(() => {
+        this.birthdays = [...bday];
+      });
+    } catch (err) {
+      throw new Error("Something went wrong loading birthdays");
+    }
+  };
 }
 
 export default new userStore();

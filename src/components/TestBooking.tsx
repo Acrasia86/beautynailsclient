@@ -1,7 +1,4 @@
-import {
-  Button,
-  SelectChangeEvent,
-} from "@mui/material";
+import { Button, SelectChangeEvent } from "@mui/material";
 import { observer } from "mobx-react-lite";
 import { ChangeEvent, useEffect, useState } from "react";
 import checkoutStore from "../stores/checkoutStore";
@@ -17,13 +14,26 @@ import userStore from "../stores/userStore";
 import modalStore from "../stores/modalStore";
 
 const TestBooking = () => {
-
-
-  const { servicesArray, services, serviceObj, setServiceChosen, service, setService, selectService } = serviceStore;
-  const { createCheckout, dateChosen, setDateChosen, nextStepChosen, setConfirmChosen, confirmChosen } = checkoutStore;
+  const {
+    servicesArray,
+    services,
+    serviceObj,
+    setServiceChosen,
+    service,
+    setService,
+    selectService,
+  } = serviceStore;
+  const {
+    createCheckout,
+    dateChosen,
+    setDateChosen,
+    nextStepChosen,
+    setConfirmChosen,
+    confirmChosen,
+  } = checkoutStore;
   const { isLoggedIn, users, getUser } = userStore;
   const navigate = useNavigate();
-  const {openModal} = modalStore;
+  const { openModal } = modalStore;
 
   const initialCheckoutState = {
     id: uuidv4(),
@@ -31,7 +41,7 @@ const TestBooking = () => {
     bookedDate: "",
     address: "",
     zipCode: "",
-    phoneNumber: ""
+    phoneNumber: "",
   };
 
   const [initCheckout, setInitCheckout] = useState(initialCheckoutState);
@@ -40,7 +50,7 @@ const TestBooking = () => {
     const { name, value } = event.target;
     setService(event.target.value as string);
     setInitCheckout({ ...initCheckout, [name]: value });
-      setServiceChosen(true);
+    setServiceChosen(true);
   };
 
   const handleInputChange = (
@@ -55,13 +65,13 @@ const TestBooking = () => {
   ) => {
     const { name, value } = e.target;
     setInitCheckout({ ...initCheckout, [name]: value });
-      setDateChosen(true);
+    setDateChosen(true);
   };
 
   const onSubmit = () => {
     createCheckout(initCheckout);
-      setConfirmChosen(true);
-    navigate('/thankyou')
+    setConfirmChosen(true);
+    navigate("/thankyou");
   };
 
   useEffect(() => {
@@ -71,30 +81,32 @@ const TestBooking = () => {
 
   return (
     <div>
-      <div style={{ display: "flex", flexDirection: "row"}}>
-        <div style={{ display: 'flex', flexDirection: 'column'}}>
-        <BookingStepper />
-    
-       <ServiceDropDown handleChange={handleChange}/>
-       <BookingDatePicker handleDateChange={handleDateChange}/>
-       </div>
-       { nextStepChosen ?
-       <div style={{display: 'flex', flexDirection: 'column'}}>
-       <UserInputs handleInputChange={handleInputChange}/>
-       <Button
-          onClick={onSubmit}
-          variant="contained"
-          color="success"
-          style={{marginLeft: '45px', position: 'absolute', bottom: '-400px'}}
-        >
-          Bekräfta
-        </Button>
+      <div style={{ display: "flex", flexDirection: "row" }}>
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <BookingStepper />
+
+          <ServiceDropDown handleChange={handleChange} />
+          <BookingDatePicker handleDateChange={handleDateChange} />
         </div>
-        : null }
+        {nextStepChosen ? (
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <UserInputs handleInputChange={handleInputChange} />
+            <Button
+              onClick={onSubmit}
+              variant="contained"
+              color="success"
+              style={{
+                marginLeft: "45px",
+                position: "absolute",
+                bottom: "-400px",
+              }}
+            >
+              Bekräfta
+            </Button>
+          </div>
+        ) : null}
       </div>
-      { dateChosen ? 
-      <UserFeedback initCheckout={initCheckout}/>
-      : null }
+      {dateChosen ? <UserFeedback initCheckout={initCheckout} /> : null}
     </div>
   );
 };

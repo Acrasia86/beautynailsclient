@@ -1,26 +1,25 @@
-import { observer } from 'mobx-react-lite'
-import React, { ChangeEvent, useEffect, useState } from 'react'
-import AddIcon from '@mui/icons-material/Add';
-import { Button, FormGroup, TextField } from '@mui/material';
-import serviceStore from '../../stores/serviceStore';
-import modalStore from '../../stores/modalStore';
+import { observer } from "mobx-react-lite";
+import React, { ChangeEvent, useEffect, useState } from "react";
+import AddIcon from "@mui/icons-material/Add";
+import { Button, FormGroup, TextField } from "@mui/material";
+import serviceStore from "../../stores/serviceStore";
+import modalStore from "../../stores/modalStore";
 import { v4 as uuidv4 } from "uuid";
-import userStore from '../../stores/userStore';
+import userStore from "../../stores/userStore";
 
 const AddService = () => {
-
   const initialCheckoutState = {
     id: uuidv4(),
     productName: "",
     productDescription: "",
     timeToFinnish: "",
-    price: 0
+    price: 0,
   };
 
   const [initCheckout, setInitCheckout] = useState(initialCheckoutState);
-  const {createService, servicesArray, services} = serviceStore;
-  const {closeModal} = modalStore;
-  const {role, getUser, user, setRole} = userStore;
+  const { createService, servicesArray, services } = serviceStore;
+  const { closeModal } = modalStore;
+  const { role, getUser, user, setRole } = userStore;
 
   const handleInputChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -36,28 +35,62 @@ const AddService = () => {
 
   useEffect(() => {
     setRole();
-    console.log('role ' + JSON.stringify(role))
+    console.log("role " + JSON.stringify(role));
     services();
-  }, [servicesArray.length])
-  
+  }, [servicesArray.length]);
 
   return (
-    <div style={{height: '500px', display: 'flex', gap: '20px', flexDirection: 'column'}}>
+    <div
+      style={{
+        height: "500px",
+        display: "flex",
+        gap: "20px",
+        flexDirection: "column",
+      }}
+    >
       <FormGroup>
-      <TextField onChange={handleInputChange} name='productName' placeholder='Servicenamn' id="outlined-basic" label="Servicenamn" variant="outlined" />
+        <TextField
+          onChange={handleInputChange}
+          name="productName"
+          placeholder="Servicenamn"
+          id="outlined-basic"
+          label="Servicenamn"
+          variant="outlined"
+        />
       </FormGroup>
       <FormGroup>
-      <TextField onChange={handleInputChange} name="productDescription" placeholder='Servicebeskrivning' id="outlined-basic" label="Servicebeskrivning" variant="outlined" />
+        <TextField
+          onChange={handleInputChange}
+          name="productDescription"
+          placeholder="Servicebeskrivning"
+          id="outlined-basic"
+          label="Servicebeskrivning"
+          variant="outlined"
+        />
       </FormGroup>
       <FormGroup>
-      <TextField onChange={handleInputChange} name="timeToFinnish" placeholder='Behandlingstid' id="outlined-basic" label="Behandlingstid" variant="outlined" />
+        <TextField
+          onChange={handleInputChange}
+          name="timeToFinnish"
+          placeholder="Behandlingstid"
+          id="outlined-basic"
+          label="Behandlingstid"
+          variant="outlined"
+        />
       </FormGroup>
       <FormGroup>
-      <TextField onChange={handleInputChange} name="price" placeholder='Pris' id="outlined-basic" label="Pris" variant="outlined" />
+        <TextField
+          onChange={handleInputChange}
+          name="price"
+          placeholder="Pris"
+          id="outlined-basic"
+          label="Pris"
+          variant="outlined"
+        />
       </FormGroup>
       <Button onClick={onSubmit}>Lägg till service</Button>
     </div>
-  )
-}
+  );
+};
 
 export default observer(AddService);
