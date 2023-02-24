@@ -12,7 +12,7 @@ const BookingDatePicker = ({handleDateChange} :Props) => {
     const {serviceChosen } = serviceStore;
 
   return (
-    <div>
+    <div style={{position: 'absolute', bottom: '-300px'}}>
          <TextField
           style={{width: '400px', marginLeft: '100px'}}
           id="datetime-local"

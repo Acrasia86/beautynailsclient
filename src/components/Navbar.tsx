@@ -8,14 +8,15 @@ import Link1 from "@mui/material/Link";
 import modalStore from '../stores/modalStore';
 import store from '../stores/store';
 import userStore from '../stores/userStore';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import LoginForm from '../features/users/LoginForm';
 import RegisterForm from '../features/users/RegisterForm';
+import serviceStore from '../stores/serviceStore';
+import checkoutStore from '../stores/checkoutStore';
 
 const Navbar = () => {
 
     const ref = useRef<HTMLInputElement>(null);
-
     const scrollToBottom = (count: number) => {
       if (ref.current) {
         window.scrollTo({
@@ -28,7 +29,9 @@ const Navbar = () => {
     const [role, setRole] = useState<[]>([]);
     const { openModal } = modalStore;
     const {token} = store;
-    const { isLoggedIn, user, logout} = userStore;
+    const { setServiceChosen, setService } = serviceStore;
+    const { setConfirmChosen, setDateChosen, setNextStepChosen } = checkoutStore;
+    const { isLoggedIn, user, logout, getUser, getAllUsers, users} = userStore;
     const [anchorElNav, setAnchorElNav] = React.useState(null);
     const [anchorElUser, setAnchorElUser] = React.useState(null);
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
@@ -51,6 +54,11 @@ const Navbar = () => {
       const handleLogout = () => {
         logout();
         handleCloseUserMenu();
+        setServiceChosen(false);
+        setDateChosen(false);
+        setNextStepChosen(false);
+        setConfirmChosen(false);
+        setService('');
       }
 
       const handleLogin = () => {
@@ -138,10 +146,10 @@ const Navbar = () => {
         </Box>
       </Box>
       {
-      role.map((x: any) => {
+      role.map((x: any, i: any) => {
         if(x === 'Admin' && token !== null && isLoggedIn) {
           return (
-            <Link to='/admin'><div style={{position: 'absolute', top: '10px', left: '900px'}}>Admin</div></Link>
+            <Link key={i} to='/admin'><div style={{position: 'absolute', top: '10px', left: '900px'}}>Admin</div></Link>
           )
         }
       })
@@ -220,7 +228,7 @@ const Navbar = () => {
             </MenuItem>
           ) : null}{" "}
         </Box>{" "}
-        <Box component="div" sx={{ flexGrow: 0 }}>
+        <Box ref={ref} component="div" sx={{ flexGrow: 0 }}>
          
         
             <IconButton
@@ -258,13 +266,14 @@ const Navbar = () => {
                 <Typography textAlign="center">Logga ut</Typography>{" "}
               </MenuItem>
             )}{" "}
+            { !isLoggedIn ?
             <MenuItem
               style={{ textDecoration: "none" }}
               onClick={handleRegister}
             >
-              {" "}
-              <Typography ref={ref} textAlign="center">Skapa konto</Typography>{" "}
-            </MenuItem>{" "}
+              <Typography textAlign="center">Skapa konto</Typography>
+            </MenuItem>
+            : null }
           </Menu>{" "}
         </Box>
       </Box>

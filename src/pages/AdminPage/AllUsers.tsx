@@ -43,16 +43,16 @@ const AllUsers = () => {
         <TableBody>
           {users
             .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-            .map((users) => {
+            .map((users, i) => {
               return (
-                <TableRow hover role="checkbox" tabIndex={-1}>
-                  <TableCell key={users.userName} align='left'>
+                <TableRow key={i} hover role="checkbox" tabIndex={-1}>
+                  <TableCell align='left'>
                     {users.userName}
                   </TableCell>
-                  <TableCell key={users.userName} align='left'>
+                  <TableCell  align='left'>
                     {users.birthday}
                   </TableCell>
-                  <TableCell key={users.userName} align='left'>
+                  <TableCell align='left'>
                   <Stack spacing={2} direction="row">
                         </Stack>
                   </TableCell>

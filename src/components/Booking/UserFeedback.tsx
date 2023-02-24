@@ -25,7 +25,7 @@ const UserFeedback = ({ initCheckout }: Props) => {
 
 
   return (
-    <Box component="div" sx={{marginLeft: '100px', marginTop: '30px'}}>
+    <Box component="div" sx={{marginLeft: '100px', marginTop: '30px', position: 'absolute', bottom: '-500px'}}>
       <Typography>Tjänsten: {serviceObj?.productName}</Typography>
       <Typography>Beskrivning: {serviceObj?.productDescription}</Typography>
       <Typography>Pris: {serviceObj?.price} kr</Typography>
