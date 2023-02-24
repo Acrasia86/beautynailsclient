@@ -45,7 +45,7 @@ function Main() {
       
       </Box>
       <Canvas>
-        {/* <NailPolish/> */}
+        <NailPolish/>
         </Canvas>
       <Box style={{position: 'absolute', bottom: '-30px', width: '50%', left: '50px'}} component="div" display="flex" alignItems="center" minHeight="100vh">
         <Container>
